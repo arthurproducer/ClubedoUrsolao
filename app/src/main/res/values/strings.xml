@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Clube do Ursolão</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hint_login">Login</string>
+    <string name="hint_password">Senha</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register_link">Não tem conta ainda? Cadastre-se</string>
+    <string name="forgetPassword">Esqueceu a senha?</string>
+    <string name="signIn">Logar</string>
+    <string name="registerUserDescription">Tenha tudo sem ter nada! Não entendeu a frase conheça no app!</string>
+</resources>
