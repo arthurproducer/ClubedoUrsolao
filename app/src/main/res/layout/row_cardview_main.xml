@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:background="@drawable/background_circle"
                 android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_menu_my_calendar"
-                android:id="@+id/imageView2" app:layout_constraintTop_toTopOf="@+id/backgroundStatusProduct"
+                android:id="@+id/imgProduct" app:layout_constraintTop_toTopOf="@+id/backgroundStatusProduct"
                 app:layout_constraintStart_toStartOf="@+id/backgroundStatusProduct"
                 app:layout_constraintEnd_toEndOf="@+id/backgroundStatusProduct"
                 app:layout_constraintBottom_toBottomOf="@+id/backgroundStatusProduct"/>
@@ -43,7 +43,7 @@
                 tools:text="MARTELO X"
                 android:textColor="@color/colorTextPrimary"
                 android:id="@+id/txtCardTitle" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/imgProduct"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/rotateLayout"/>
 

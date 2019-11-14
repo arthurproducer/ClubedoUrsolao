@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:background="@drawable/background_circle"
                 android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_menu_my_calendar"
-                android:id="@+id/imageView2" app:layout_constraintTop_toTopOf="@+id/backgroundStatusProduct"
+                android:id="@+id/imgProduct" app:layout_constraintTop_toTopOf="@+id/backgroundStatusProduct"
                 app:layout_constraintStart_toStartOf="@+id/backgroundStatusProduct"
                 app:layout_constraintEnd_toEndOf="@+id/backgroundStatusProduct"
                 app:layout_constraintBottom_toBottomOf="@+id/backgroundStatusProduct"/>
@@ -42,7 +42,7 @@
                 android:text="MARTELO X"
                 android:textColor="@color/colorPrimaryDark"
                 android:id="@+id/txtCardTitle" android:layout_marginTop="16dp"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/imgProduct"
                 android:layout_marginStart="32dp"
         />
 
@@ -62,9 +62,9 @@
                      app:layout_constraintStart_toStartOf="@+id/txtLocation"
                      android:layout_marginTop="8dp"
                      app:layout_constraintTop_toBottomOf="@+id/txtLocation"
-                     android:id="@+id/lender_loan_date">
+                     android:id="@+id/layout_lender_loan_date">
             <include layout="@layout/lender_loan_date"
-                     android:id="@+id/view"
+                     android:id="@+id/view_lender_loan_date"
                      tools:layout_editor_absoluteY="62dp" tools:layout_editor_absoluteX="82dp"/>
         </FrameLayout>
         <Button
@@ -77,7 +77,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/lender_loan_date" android:layout_marginTop="8dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/layout_lender_loan_date" android:layout_marginTop="8dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -14,9 +14,12 @@
             android:layout_height="128dp"
             app:lottie_autoPlay="true"
             app:lottie_fileName="bear_brown.json"
-            app:lottie_loop="true" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+            app:lottie_loop="true" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"/>
     <ImageView
             android:layout_width="179dp"
             android:layout_height="126dp" app:srcCompat="@drawable/bear_xxxhdpi"

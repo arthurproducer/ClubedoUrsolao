@@ -1,8 +1,13 @@
 package br.com.arthur.clubedoursolao.model
 
 import android.location.Location
+import java.util.*
 
 data class Product(
-    var icon : String,
     var title : String,
-    var location: String)
+    var status : Int,
+    var icon : Int,
+    var location: String,
+    var owner : String,
+    var returnDate: Date
+    )

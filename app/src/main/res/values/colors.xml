@@ -8,7 +8,8 @@
     <color name="colorTextSecundary">#FFFFFF</color>
     <color name="colorEditTextDefault">#EEEEEE</color>
     <!--<color name="colorAccent">#D81B60</color>-->
-    <color name="colorAccent">#3F68EE</color>
+    <color name="colorAccent">#47310C</color>
+    <color name="colorBlueLightApp">#3F68EE</color>
     <color name="colorButton">#47310C</color>
     <color name="colorNegativeStatus">#B6402F</color>
     <color name="colorMediumStatus">#F6B64C</color>
