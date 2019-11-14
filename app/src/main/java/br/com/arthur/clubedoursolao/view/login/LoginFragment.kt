@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import br.com.arthur.clubedoursolao.LoginActivity
 import br.com.arthur.clubedoursolao.MainActivity
 import br.com.arthur.clubedoursolao.R
+import br.com.arthur.clubedoursolao.model.User
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -31,6 +32,13 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //backgroundLayout.getBackground().setAlpha(80)  // here the value is an integer not float
+
+        val user =  User()
+
+        user.email = edtEmail.text.toString()
+        user.password = edtPassword.text.toString()
+
+
 
         registerLink.setOnClickListener {
             it.findNavController()?.navigate(R.id.action_loginFragment_to_registerUserFragment)

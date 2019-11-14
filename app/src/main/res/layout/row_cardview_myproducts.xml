@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        app:cardCornerRadius="11dp"
+        app:cardCornerRadius="13dp"
         app:cardElevation="3dp"
         app:cardUseCompatPadding="true" android:id="@+id/materialCardView">
 
