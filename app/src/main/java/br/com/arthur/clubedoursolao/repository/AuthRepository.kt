@@ -1,0 +1,17 @@
+package br.com.arthur.clubedoursolao.repository
+
+import br.com.arthur.clubedoursolao.model.TokenResponse
+import br.com.arthur.clubedoursolao.model.User
+
+interface AuthRepository {
+    fun checkHealth(
+        onComplete: () -> Unit,
+        onError: (Throwable?) -> Unit
+    )
+
+    fun checkAuth(
+        user: User,
+        onComplete: (TokenResponse?) -> Unit,
+        onError: (Throwable?) -> Unit
+    )
+}

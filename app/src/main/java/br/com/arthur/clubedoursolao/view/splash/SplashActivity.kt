@@ -5,21 +5,34 @@ import android.os.Bundle
 import br.com.arthur.clubedoursolao.R
 import br.com.arthur.clubedoursolao.LoginActivity
 import android.content.Intent
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import org.koin.android.viewmodel.ext.android.viewModel
+import kotlin.coroutines.CoroutineContext
 
 class SplashActivity : AppCompatActivity() {
 
-    //val  splashViewModel: SplashViewModel by viewModel()
+    val  splashViewModel: SplashViewModel by viewModel()
     var cont = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        iniciaSplash()
+        setContentView(R.layout.activity_splash)
+        splashViewModel.checkHealth()
+        splashViewModel.messageError.observe(this, Observer {
+            if (it == "") {
+                iniciaSplash()
+            } else {
+                Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+            }
+        })
+
     }
 
     fun iniciaSplash() {
-
-        setContentView(R.layout.activity_splash)
 
         Thread(Runnable {
             cont++
@@ -40,6 +53,5 @@ class SplashActivity : AppCompatActivity() {
                 cont++
             }
         }).start()
-
     }
 }
