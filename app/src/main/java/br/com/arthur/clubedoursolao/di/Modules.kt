@@ -31,9 +31,10 @@ val repositoryModule = module{
 }
 
 val networkModule = module {
-    single<Interceptor>{ BaseInterceptor() }
-    //single<Interceptor>{ AuthInterceptor() }
-    single{ createOkhttpClientAuth(get())}
+    single<Interceptor>(named("base")){ BaseInterceptor() }
+    single<Interceptor>(named("auth")){ AuthInterceptor() }
+    single{ createOkhttpClientAuth(get(named("base")))}
+    //single{ createOkhttpClientAuth(get(named("auth")))} Tratar as duas chamadas
     single{ createNetworkClient(get(),get(named("baseURL"))).create(Api::class.java)}
     single(named("baseURL")){Constants.baseURL}
 }

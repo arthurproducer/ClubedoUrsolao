@@ -13,5 +13,5 @@ data class User (
     var telephone : Int,
     var zipcode : String
 ){
-@ParcelConstructor constructor() : this("","","",0,0,0,"")
+    @ParcelConstructor constructor() : this("","","",0,0,0,"")
 }
