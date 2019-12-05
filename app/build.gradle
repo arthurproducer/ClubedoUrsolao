@@ -31,6 +31,7 @@ android {
 }
 
 dependencies {
+    
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -89,4 +90,9 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+
+    //Another option for implementation of the Navigation
+//    implementation 'androidx.drawerlayout:drawerlayout:1.0.0'
+//    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
+//    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
 }

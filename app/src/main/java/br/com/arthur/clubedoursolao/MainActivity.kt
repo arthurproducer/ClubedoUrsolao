@@ -5,7 +5,12 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import br.com.arthur.clubedoursolao.view.list.MyProductFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,36 +23,40 @@ import kotlinx.android.synthetic.main.toolbar.*
              drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
          )
      }
+     private lateinit var appBarConfig: AppBarConfiguration
+     private lateinit var navController: NavController
 
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        //Configurando o Navigation Menu
-        drawerLayout.addDrawerListener(drawerToggle)
-        drawerToggle.syncState()
+         val topLevelDestinations = setOf(
+             R.id.item_myProducts)
+         appBarConfig = AppBarConfiguration(topLevelDestinations,drawerLayout)
 
-        nav_view.setNavigationItemSelectedListener {menuItem ->
-            selectMenuOption(menuItem)
-            true
-        }
+         navController = findNavController(R.id.nav_host_fragment)
+         setupActionBarWithNavController(navController,appBarConfig)
+         nav_view.setupWithNavController(navController)
 
-         //trecho de código questionável implementação
-//         if(savedInstanceState == null){
-//             selectMenuOption(nav_view.menu.findItem(R.id.item_category))
-//            val fragment = MyProductFragment()
-//             supportFragmentManager.beginTransaction()
-//                 .add(R.id.myProductFragment,fragment,MyProductFragment.TAG)
-//                 .commit()
-//         }
-
+//        //Configurando o Navigation Menu
+//        drawerLayout.addDrawerListener(drawerToggle)
+//        drawerToggle.syncState()
+//
+//        nav_view.setNavigationItemSelectedListener {menuItem ->
+//            selectMenuOption(menuItem)
+//            true
+//        }
 
         //val navigationView = findViewById(R.id.nav_view) as NavigationView
         //val navHead = navigationView.getHeaderView(0)
         //navigationView.setNavigationItemSelectedListener(this)
 
     }
+
+     override fun onSupportNavigateUp(): Boolean {
+         return navController.navigateUp(appBarConfig) || super.onSupportNavigateUp()
+     }
 
      override fun onOptionsItemSelected(item: MenuItem): Boolean {
          when (item.itemId) {
@@ -75,9 +84,29 @@ import kotlinx.android.synthetic.main.toolbar.*
          drawerLayout.closeDrawers()
      }
 
+     override fun onBackPressed() {
+         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+             drawerLayout.closeDrawer(GravityCompat.START)
+         } else{
+             super.onBackPressed()
+         }
+     }
+
+
      fun logout(){
          //Tratar a volta para a tela e Login
          //deslogar User(pela API talvez?)
      }
+
+
+     //trecho de código questionável implementação
+//         if(savedInstanceState == null){
+//             selectMenuOption(nav_view.menu.findItem(R.id.item_category))
+//            val fragment = MyProductFragment()
+//             supportFragmentManager.beginTransaction()
+//                 .add(R.id.myProductFragment,fragment,MyProductFragment.TAG)
+//                 .commit()
+//         }
+
 
  }

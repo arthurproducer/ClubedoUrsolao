@@ -19,5 +19,12 @@
     <string name="registerUserDescription">Tenha tudo sem ter nada! Não entendeu a frase conheça no app!</string>
     <string name="registerUser">Cadastrar</string>
 
+    <!-- Titles -->
+    <string name="title_category">Categorias</string>
+    <string name="title_my_products">Meus Produtos</string>
+    <string name="title_devolution">Devolução</string>
+    <string name="title_about">Sobre</string>
+    <string name="title_exit">Sair</string>
+
 
 </resources>

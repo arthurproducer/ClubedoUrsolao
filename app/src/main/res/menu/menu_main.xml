@@ -4,31 +4,35 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="none">
+    <group android:id="@+id/category" android:checkableBehavior="none">
         <item
                 android:id="@+id/item_category"
                 android:icon="@drawable/ic_view_list"
-                android:title="Categorias" />
-        <item
+                android:title="@string/title_category" />
+    </group>
+    <group android:id="@+id/myProducts" android:checkableBehavior="none">
+    <item
                 android:id="@+id/item_myProducts"
                 android:icon="@drawable/ic_devices_other"
-                android:title="Meus Produtos" />
-        <item
+                android:title="@string/title_my_products" />
+    </group>
+    <group android:id="@+id/devolution" android:checkableBehavior="none">
+    <item
                 android:id="@+id/item_devolution"
                 android:icon="@drawable/ic_pan_tool"
-                android:title="Devolução" />
+                android:title="@string/title_devolution" />
     </group>
 
     <group android:id="@+id/about" android:checkableBehavior="none">
         <item
                 android:id="@+id/item_about"
                 android:icon="@drawable/ic_info_outline_white"
-                android:title="Sobre" />
+                android:title="@string/title_about" />
     </group>
     <group android:id="@+id/exit" android:checkableBehavior="none">
         <item
                 android:id="@+id/item_sair"
                 android:icon="@drawable/ic_exit_to_app_white"
-                android:title="Sair" />
+                android:title="@string/title_exit" />
     </group>
 </menu>
