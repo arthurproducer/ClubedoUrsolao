@@ -1,7 +1,6 @@
 package br.com.arthur.clubedoursolao.repository
 
 import br.com.arthur.clubedoursolao.api.Api
-import br.com.arthur.clubedoursolao.model.AuthResponse
 import br.com.arthur.clubedoursolao.model.HealthResponse
 import br.com.arthur.clubedoursolao.model.TokenResponse
 import br.com.arthur.clubedoursolao.model.User
@@ -10,8 +9,27 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class AuthRepositoryImpl(val api : Api): AuthRepository{
+    override fun registerUser(
+        user: User,
+        onComplete: () -> Unit,
+        onError: (Throwable?) -> Unit) {
+        api.registerUser(user)
+            .enqueue(object : Callback<User> {
+                    override fun onFailure(call: Call<User>, t: Throwable) {
+                    onError(t)
+                }
 
-     override fun checkAuth(
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    if(response.isSuccessful){
+                        onComplete()//Ver o que vem aqui e se esse trecho de código é necessário
+                    } else{
+                        onError(Throwable("Não foi possível realizar a chamaada."))
+                    }
+                }
+            })
+    }
+
+    override fun checkAuth(
          user: User,
          onComplete: (TokenResponse?) -> Unit,
          onError: (Throwable?) -> Unit){
@@ -48,5 +66,4 @@ class AuthRepositoryImpl(val api : Api): AuthRepository{
                 }
             })
     }
-
 }

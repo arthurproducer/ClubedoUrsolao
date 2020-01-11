@@ -10,8 +10,8 @@ data class User (
     var password : String,
     var countrycode : Int,
     var arecode : Int,
-    var telephone : Int,
+    var phone : String,
     var zipcode : String
 ){
-    @ParcelConstructor constructor() : this("","","",0,0,0,"")
+    @ParcelConstructor constructor() : this("","","",0,0,"","")
 }

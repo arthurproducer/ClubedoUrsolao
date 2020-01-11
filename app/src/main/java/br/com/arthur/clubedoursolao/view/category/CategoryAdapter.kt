@@ -1,4 +1,4 @@
-package br.com.arthur.clubedoursolao.view.list
+package br.com.arthur.clubedoursolao.view.category
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,15 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.arthur.clubedoursolao.R
 import br.com.arthur.clubedoursolao.model.Product
 import kotlinx.android.synthetic.main.lender_loan_date.view.*
-import kotlinx.android.synthetic.main.row_cardview_myproducts.*
-import kotlinx.android.synthetic.main.row_cardview_myproducts.view.*
+import kotlinx.android.synthetic.main.row_cardview_category.view.*
 
-class MyProductAdapter(
+class CategoryAdapter(
     private val listProducts : ArrayList<Product>
 ) : RecyclerView.Adapter<VHProduct>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHProduct {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.row_cardview_myproducts,parent,false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.row_cardview_category,parent,false)
         val vh = VHProduct(v)
 
         return vh

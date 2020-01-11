@@ -16,6 +16,8 @@ interface Api{
     @POST("/auth")
     fun checkAuth(@Body user : User) : Call<TokenResponse>
 
+    @POST("/register")
+    fun registerUser(@Body user : User) : Call<User>
 //
 //    @GET("/api/pokemon")
 //    fun getPokemons(

@@ -99,14 +99,4 @@ import kotlinx.android.synthetic.main.toolbar.*
      }
 
 
-     //trecho de código questionável implementação
-//         if(savedInstanceState == null){
-//             selectMenuOption(nav_view.menu.findItem(R.id.item_category))
-//            val fragment = MyProductFragment()
-//             supportFragmentManager.beginTransaction()
-//                 .add(R.id.myProductFragment,fragment,MyProductFragment.TAG)
-//                 .commit()
-//         }
-
-
  }

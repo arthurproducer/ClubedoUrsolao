@@ -2,6 +2,7 @@ package br.com.arthur.clubedoursolao.view.login
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,13 +39,8 @@ class LoginFragment : Fragment() {
 
         //backgroundLayout.getBackground().setAlpha(80)  // here the value is an integer not float
 
-        loginViewModel.messageError.observe(this, Observer {
-            Toast.makeText(context,it,Toast.LENGTH_LONG).show()
-        })
-
-
         registerLink.setOnClickListener {
-            it.findNavController()?.navigate(R.id.action_loginFragment_to_registerUserFragment)
+            it.findNavController() ?.navigate(R.id.action_loginFragment_to_registerUserFragment)
         }
         btnLogar.setOnClickListener {view ->
             val user = User()
@@ -55,10 +51,16 @@ class LoginFragment : Fragment() {
             loginViewModel.checkAuth(user)
             loginViewModel.token.observe(this, Observer {token ->
                 Toast.makeText(context,token.token,Toast.LENGTH_LONG).show()
+                Log.d("Token", token.token)
                 //Linha abaixo só será utilizada quando pegar o token
-                view.findNavController()?.navigate(R.id.action_loginFragment_to_myMainActivity)
+                view.findNavController().navigate(R.id.action_loginFragment_to_myMainActivity)
             })
         }
+
+        loginViewModel.messageError.observe(this, Observer {
+            Toast.makeText(context,it,Toast.LENGTH_LONG).show()
+        })
+
     }
 
 }

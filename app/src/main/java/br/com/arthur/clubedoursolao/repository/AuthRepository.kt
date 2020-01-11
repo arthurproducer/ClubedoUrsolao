@@ -14,4 +14,10 @@ interface AuthRepository {
         onComplete: (TokenResponse?) -> Unit,
         onError: (Throwable?) -> Unit
     )
+
+    fun registerUser(
+        user: User,
+        onComplete: () -> Unit,
+        onError: (Throwable?) -> Unit
+    )
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:id="@+id/linearLayoutShortcutCategory"
+              android:layout_marginTop="24dp"
+              android:layout_marginBottom="24dp"
+              android:paddingBottom="8dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/shortcutCardView"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bear_xxhdpi"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="10dp"
+            app:cardPreventCornerOverlap="true">
+
+        <ImageView android:layout_width="match_parent"
+                   android:background="@mipmap/ic_launcher"
+                   android:layout_height="match_parent"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView android:layout_width="84dp"
+              android:layout_height="wrap_content"
+              android:id="@+id/shortcutName"
+              android:paddingStart="2dp"
+              android:paddingEnd="2dp"
+              android:layout_gravity="center_horizontal"
+              android:gravity="center_horizontal"
+              android:maxLines="3"
+              android:ellipsize="end"
+              android:fontFamily="sans-serif"
+              tools:text="Categoria"
+    />
+
+</LinearLayout>

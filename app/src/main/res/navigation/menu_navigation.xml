@@ -9,5 +9,16 @@
     <fragment android:id="@id/item_myProducts"
               android:name="br.com.arthur.clubedoursolao.view.list.MyProductFragment"
               android:label="@string/title_my_products"
-              tools:layout="@layout/fragment_my_product"/>
+              tools:layout="@layout/fragment_my_product">
+        <action android:id="@+id/action_item_myProducts_to_productDetailsFragment"
+                app:destination="@id/productDetailsFragment"/>
+    </fragment>
+    <fragment android:id="@+id/productDetailsFragment"
+              android:name="br.com.arthur.clubedoursolao.view.details.ProductDetailsFragment"
+              android:label="fragment_product_details" tools:layout="@layout/fragment_product_details"/>
+
+    <fragment android:id="@+id/item_category"
+              android:name="br.com.arthur.clubedoursolao.view.category.CategoryFragment"
+              android:label="@string/title_category"
+              tools:layout="@layout/fragment_category"/>
 </navigation>

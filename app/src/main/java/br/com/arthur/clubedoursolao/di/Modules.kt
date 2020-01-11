@@ -8,6 +8,7 @@ import br.com.arthur.clubedoursolao.repository.AuthRepository
 import br.com.arthur.clubedoursolao.repository.AuthRepositoryImpl
 import br.com.arthur.clubedoursolao.util.Constants
 import br.com.arthur.clubedoursolao.view.login.LoginViewModel
+import br.com.arthur.clubedoursolao.view.registerUser.RegisterUserViewModel
 import br.com.arthur.clubedoursolao.view.splash.SplashViewModel
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.squareup.picasso.OkHttp3Downloader
@@ -24,6 +25,7 @@ import java.util.concurrent.TimeUnit
 val viewModelModule = module{
     viewModel { SplashViewModel(get()) }
     viewModel { LoginViewModel(get()) }
+    viewModel { RegisterUserViewModel(get()) }
 }
 
 val repositoryModule = module{
