@@ -34,8 +34,6 @@ class MyProductAdapter(
         holder.txtLocation.text = product.location
         holder.tenantProduct.text = product.owner
         holder.txtLoanDate.text = product.returnDate
-
-
     }
 
 }

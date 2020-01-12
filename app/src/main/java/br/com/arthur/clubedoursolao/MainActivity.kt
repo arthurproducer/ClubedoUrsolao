@@ -32,7 +32,7 @@ import kotlinx.android.synthetic.main.toolbar.*
         setSupportActionBar(toolbar)
 
          val topLevelDestinations = setOf(
-             R.id.item_myProducts)
+             R.id.item_category,R.id.item_myProducts,R.id.item_devolution)
          appBarConfig = AppBarConfiguration(topLevelDestinations,drawerLayout)
 
          navController = findNavController(R.id.nav_host_fragment)
@@ -62,10 +62,10 @@ import kotlinx.android.synthetic.main.toolbar.*
          when (item.itemId) {
              //Retorna qual menu/item foi selecionado)
              R.id.item_category -> {
+                 drawerLayout.openDrawer(GravityCompat.START)
                  return true
              }
              R.id.item_myProducts -> {
-                 drawerLayout.openDrawer(GravityCompat.START)
                  return true
              }
              R.id.item_devolution -> {

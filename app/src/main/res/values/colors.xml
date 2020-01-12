@@ -10,7 +10,7 @@
     <!--<color name="colorAccent">#D81B60</color>-->
     <color name="colorAccent">#47310C</color>
     <color name="colorBlueLightApp">#3F68EE</color>
-    <color name="colorButton">#47310C</color>
+    <color name="colorButton">#1C407A</color>
     <color name="colorNegativeStatus">#B6402F</color>
     <color name="colorMediumStatus">#F6B64C</color>
     <color name="colorPositiveStatus">@color/colorPositiveStatusLight</color>
