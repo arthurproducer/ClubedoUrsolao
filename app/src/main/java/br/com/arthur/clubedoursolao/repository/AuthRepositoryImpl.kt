@@ -1,9 +1,7 @@
 package br.com.arthur.clubedoursolao.repository
 
 import br.com.arthur.clubedoursolao.api.Api
-import br.com.arthur.clubedoursolao.model.HealthResponse
-import br.com.arthur.clubedoursolao.model.TokenResponse
-import br.com.arthur.clubedoursolao.model.User
+import br.com.arthur.clubedoursolao.model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -65,5 +63,24 @@ class AuthRepositoryImpl(val api : Api): AuthRepository{
                     }
                 }
             })
+    }
+
+    override fun getForCategory(onComplete: (List<Product>?) -> Unit, onError: (Throwable?) -> Unit) {
+
+        api.getForCategory()
+            .enqueue(object : Callback<List<Product>?> {
+                override fun onFailure(call: Call<List<Product>?>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<List<Product>?>, response: Response<List<Product>?>) {
+                    if(response.isSuccessful){
+                        onComplete(response.body())
+                    } else{
+                        onError(Throwable("Não foi possível realizar a chamaada."))
+                    }
+                }
+            })
+
     }
 }

@@ -1,9 +1,6 @@
 package br.com.arthur.clubedoursolao.api
 
-import br.com.arthur.clubedoursolao.model.AuthResponse
-import br.com.arthur.clubedoursolao.model.HealthResponse
-import br.com.arthur.clubedoursolao.model.TokenResponse
-import br.com.arthur.clubedoursolao.model.User
+import br.com.arthur.clubedoursolao.model.*
 import br.com.arthur.clubedoursolao.util.Constants
 import retrofit2.Call
 import retrofit2.http.*
@@ -18,6 +15,9 @@ interface Api{
 
     @POST("/register")
     fun registerUser(@Body user : User) : Call<User>
+
+    @GET("/items/category/Clothes")
+    fun getForCategory() :Call<List<Product>>
 //
 //    @GET("/api/pokemon")
 //    fun getPokemons(

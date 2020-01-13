@@ -3,6 +3,7 @@ package br.com.arthur.clubedoursolao
 import android.app.Application
 import br.com.arthur.clubedoursolao.di.networkModule
 import br.com.arthur.clubedoursolao.di.repositoryModule
+import br.com.arthur.clubedoursolao.di.sharedPreferencesModule
 import br.com.arthur.clubedoursolao.di.viewModelModule
 import com.facebook.stetho.Stetho
 import org.koin.android.ext.koin.androidContext
@@ -22,7 +23,8 @@ class App : Application(){
                 listOf(
                     viewModelModule,
                     networkModule,
-                    repositoryModule
+                    repositoryModule,
+                    sharedPreferencesModule
                 )
             )
         }

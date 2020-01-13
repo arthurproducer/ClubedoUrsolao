@@ -1,6 +1,7 @@
 package br.com.arthur.clubedoursolao.view.login
 
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,9 +12,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import br.com.arthur.clubedoursolao.R
+import br.com.arthur.clubedoursolao.api.AuthInterceptor
 import br.com.arthur.clubedoursolao.model.User
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.coroutines.*
+import okhttp3.Dispatcher
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
+import kotlin.coroutines.CoroutineContext
 
 
 /**
@@ -21,10 +27,15 @@ import org.koin.android.viewmodel.ext.android.viewModel
  *
  */
 
-class LoginFragment : Fragment() {
+class LoginFragment : Fragment(), CoroutineScope {
 
     val loginViewModel : LoginViewModel by viewModel()
+    private val preferences : SharedPreferences by inject()
+    lateinit var authInterceptor : AuthInterceptor
 
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main
     //lateinit var user : User
 
     override fun onCreateView(
@@ -51,9 +62,22 @@ class LoginFragment : Fragment() {
             loginViewModel.checkAuth(user)
             loginViewModel.token.observe(this, Observer {token ->
                 Toast.makeText(context,token.token,Toast.LENGTH_LONG).show()
+
+//                val pref = context?.getSharedPreferences("Token",0)
+                val editor = preferences.edit()
+                editor?.putString("Token",token.token)
+                editor?.apply()
+
+                launch{
+                    coroutineScope {
+                        withContext(Dispatchers.Default){authInterceptor = AuthInterceptor(preferences)}
+                        withContext(Dispatchers.Default){ view.findNavController().navigate(R.id.action_loginFragment_to_myMainActivity) }
+                    }
+                }
+                authInterceptor = AuthInterceptor(preferences)
+
                 Log.d("Token", token.token)
                 //Linha abaixo só será utilizada quando pegar o token
-                view.findNavController().navigate(R.id.action_loginFragment_to_myMainActivity)
             })
         }
 

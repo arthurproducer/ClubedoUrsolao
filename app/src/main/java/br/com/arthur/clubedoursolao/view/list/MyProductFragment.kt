@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import br.com.arthur.clubedoursolao.R
+import br.com.arthur.clubedoursolao.model.LendingProduct
 import br.com.arthur.clubedoursolao.model.Product
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_my_product.*
@@ -54,13 +55,13 @@ class MyProductFragment : Fragment() {
 
     }
 
-    private fun getMyList() : ArrayList<Product>{
+    private fun getMyList() : ArrayList<LendingProduct>{
 
-        val prod = ArrayList<Product>()
-        prod.add(Product("Machado",R.color.colorNegativeStatus,R.drawable.logo_ursolao_light,"Rua da Paz","Antônio","14/10/2019"))
-        prod.add(Product("Machado",R.color.colorNegativeStatus,R.drawable.logo_ursolao_light,"Rua da Paz","Antônio","14/10/2019"))
-        prod.add(Product("Machado",R.color.colorNegativeStatus,R.drawable.logo_ursolao_light,"Rua da Paz","Antônio","14/10/2019"))
-        prod.add(Product("Machado",R.color.colorNegativeStatus,R.drawable.logo_ursolao_light,"Rua da Paz","Antônio","14/10/2019"))
+        val prod = ArrayList<LendingProduct>()
+        prod.add(LendingProduct(1,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
+        prod.add(LendingProduct(2,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
+        prod.add(LendingProduct(3,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
+        prod.add(LendingProduct(4,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
 
         return prod
     }

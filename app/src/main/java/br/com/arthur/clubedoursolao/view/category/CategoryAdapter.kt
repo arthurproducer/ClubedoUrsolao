@@ -8,10 +8,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.arthur.clubedoursolao.R
 import br.com.arthur.clubedoursolao.model.Product
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_cardview_category.view.*
+import okhttp3.OkHttpClient
 
 class CategoryAdapter(
-    private val listProducts : ArrayList<Product>
+    private val listProducts : List<Product>,
+    val picasso: Picasso
+//    val clickListener: (Product) -> Unit
 ) : RecyclerView.Adapter<VHProduct>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHProduct {
@@ -25,19 +29,26 @@ class CategoryAdapter(
 
     override fun onBindViewHolder(holder: VHProduct, position: Int) {
         val product = listProducts[position]
-        holder.statusProduct.setColorFilter(product.status)
-        holder.imgProduct.setImageResource(product.icon)
-        holder.txtCardTitle.text = product.title
-        holder.txtLocation.text = product.location
-        holder.txtOwner.text = product.owner
+        holder.bindView(product,picasso)
     }
 
 }
 
 class VHProduct(itemView: View) : RecyclerView.ViewHolder(itemView){
-    val statusProduct : ImageView = itemView.backgroundStatusProduct
-    val imgProduct : ImageView = itemView.imgProduct
-    val txtCardTitle: TextView = itemView.txtCardTitle
-    val txtLocation : TextView = itemView.txtLocation
-    val txtOwner : TextView = itemView.txtOwner
+
+    fun bindView(product: Product,
+                 picasso: Picasso) = with(itemView){
+        if(product.status.equals("Enabled")){
+            backgroundStatusProduct.setColorFilter(R.color.colorPositiveStatus)
+        }else{
+            backgroundStatusProduct.setColorFilter(R.color.colorNegativeStatus)
+        }
+//                             imgProduct.setImageResource(product.photo)
+//        picasso.load("https://pokedexdx.herokuapp.com${product.photo}").into(ivPokemon)
+                             txtCardTitle.text = product.title
+                            txtLocation.text = product.address
+                            txtOwner.text = product.owner_name
+                 }
+
+
 }

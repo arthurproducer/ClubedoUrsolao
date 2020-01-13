@@ -8,13 +8,14 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.arthur.clubedoursolao.R
+import br.com.arthur.clubedoursolao.model.LendingProduct
 import br.com.arthur.clubedoursolao.model.Product
 import kotlinx.android.synthetic.main.lender_loan_date.view.*
 import kotlinx.android.synthetic.main.row_cardview_myproducts.*
 import kotlinx.android.synthetic.main.row_cardview_myproducts.view.*
 
 class MyProductAdapter(
-    private val listProducts : ArrayList<Product>
+    private val listProducts : ArrayList<LendingProduct>
 ) : RecyclerView.Adapter<VHProduct>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHProduct {
@@ -29,10 +30,10 @@ class MyProductAdapter(
     override fun onBindViewHolder(holder: VHProduct, position: Int) {
         val product = listProducts[position]
         holder.statusProduct.setColorFilter(product.status)
-        holder.imgProduct.setImageResource(product.icon)
+        holder.imgProduct.setImageResource(product.photo)
         holder.txtCardTitle.text = product.title
-        holder.txtLocation.text = product.location
-        holder.tenantProduct.text = product.owner
+        holder.txtLocation.text = product.address
+        holder.tenantProduct.text = product.owner_name
         holder.txtLoanDate.text = product.returnDate
     }
 
