@@ -30,7 +30,7 @@ class DevolutionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val listProducts = getMyList()
-        val adapter = MyProductAdapter(listProducts)
+        val adapter = DevolutionAdapter(listProducts)
 
         devolutionRecyclerView.adapter = adapter
 
@@ -51,10 +51,10 @@ class DevolutionFragment : Fragment() {
     private fun getMyList() : ArrayList<LendingProduct>{
 
         val prod = ArrayList<LendingProduct>()
-        prod.add(LendingProduct(1,"Machado","Rua da Paz",R.drawable.logo_yellow,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
-        prod.add(LendingProduct(2,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
-        prod.add(LendingProduct(3,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
-        prod.add(LendingProduct(4,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
+//        prod.add(LendingProduct(1,"Machado","Rua da Paz",R.drawable.logo_yellow,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
+//        prod.add(LendingProduct(2,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
+//        prod.add(LendingProduct(3,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
+//        prod.add(LendingProduct(4,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
 
         return prod
     }

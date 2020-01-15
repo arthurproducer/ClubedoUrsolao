@@ -81,6 +81,23 @@ class AuthRepositoryImpl(val api : Api): AuthRepository{
                     }
                 }
             })
+    }
 
+    override fun getMyProduct(user: User, onComplete: (List<LendingProduct>?) -> Unit, onError: (Throwable?) -> Unit) {
+
+        api.getMyProducts(user.id)
+            .enqueue(object: Callback<List<LendingProduct>>{
+                override fun onFailure(call: Call<List<LendingProduct>>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<List<LendingProduct>>, response: Response<List<LendingProduct>>) {
+                    if(response.isSuccessful){
+                        onComplete(response.body())
+                    } else{
+                        onError(Throwable("Não foi possível realizar a chamada."))
+                    }
+                }
+            })
     }
 }

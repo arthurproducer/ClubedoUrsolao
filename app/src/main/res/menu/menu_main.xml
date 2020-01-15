@@ -31,7 +31,7 @@
     </group>
     <group android:id="@+id/exit" android:checkableBehavior="none">
         <item
-                android:id="@+id/item_sair"
+                android:id="@+id/item_exit"
                 android:icon="@drawable/ic_exit_to_app_white"
                 android:title="@string/title_exit" />
     </group>

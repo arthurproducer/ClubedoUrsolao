@@ -27,11 +27,11 @@ class DevolutionAdapter(
 
     override fun onBindViewHolder(holder: VHProductDevolution, position: Int) {
         val product = listProducts[position]
-        holder.statusProduct.setColorFilter(product.status)
-        holder.imgProduct.setImageResource(product.photo)
+//        holder.statusProduct.setColorFilter(product.status)
+//        holder.imgProduct.setImageResource(product.photo)
         holder.txtCardTitle.text = product.title
-        holder.txtLocation.text = product.address
-        holder.tenantProduct.text = product.owner_name
+//        holder.txtLocation.text = product.address
+//        holder.tenantProduct.text = product.owner_name
         holder.txtLoanDate.text = product.returnDate
     }
 

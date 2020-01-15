@@ -1,5 +1,7 @@
  package br.com.arthur.clubedoursolao
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -71,11 +73,13 @@ import kotlinx.android.synthetic.main.toolbar.*
              R.id.item_devolution -> {
                  return true
              }
-             R.id.item_sair -> logout()
+             R.id.item_exit -> {
+                 logout()
+                 return true
+             }
          }
+//         drawerLayout.closeDrawer(GravityCompat.START)
 
-         //drawerToggle.closeDrawer(GravityCompat.START)
-         //return true
          return super.onOptionsItemSelected(item)
      }
 
@@ -92,9 +96,10 @@ import kotlinx.android.synthetic.main.toolbar.*
          }
      }
 
-
      fun logout(){
-         //Tratar a volta para a tela e Login
+             val loginIntent = Intent(this@MainActivity, LoginActivity::class.java)
+             startActivity(loginIntent)
+             finish()         //Tratar a volta para a tela e Login
          //deslogar User(pela API talvez?)
      }
 

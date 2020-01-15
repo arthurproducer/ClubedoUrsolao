@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.arthur.clubedoursolao.R
 import br.com.arthur.clubedoursolao.model.Product
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.custom_shortcut_category.*
 import kotlinx.android.synthetic.main.fragment_category.*
 import kotlinx.android.synthetic.main.row_cardview_category.*
 import org.koin.android.ext.android.inject
@@ -72,10 +73,9 @@ class CategoryFragment : Fragment() {
 
         }else{
             btnDetalhes.setOnClickListener {
-                it.findNavController()?.navigate(R.id.action_item_myProducts_to_productDetailsFragment)
+                it.findNavController().navigate(R.id.action_item_myProducts_to_productDetailsFragment)
             }
         }
-
     }
 //
 //    private fun getMyList() : ArrayList<Product>{

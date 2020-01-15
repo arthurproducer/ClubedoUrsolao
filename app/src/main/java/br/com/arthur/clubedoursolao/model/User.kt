@@ -5,6 +5,7 @@ import org.parceler.ParcelConstructor
 
 @Parcel
 data class User (
+    var id : Int,
     var name : String,
     var email : String,
     var password : String,
@@ -13,5 +14,5 @@ data class User (
     var phone : String,
     var zipcode : String
 ){
-    @ParcelConstructor constructor() : this("","","",0,0,"","")
+    @ParcelConstructor constructor() : this(0,"","","",0,0,"","")
 }

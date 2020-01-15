@@ -21,22 +21,11 @@ import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import kotlin.coroutines.CoroutineContext
 
+class LoginFragment : Fragment() {
 
-/**
- * A simple [Fragment] subclass.
- *
- */
-
-class LoginFragment : Fragment(), CoroutineScope {
-
-    val loginViewModel : LoginViewModel by viewModel()
-    private val preferences : SharedPreferences by inject()
-    lateinit var authInterceptor : AuthInterceptor
-
-
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main
-    //lateinit var user : User
+    private val loginViewModel: LoginViewModel by viewModel()
+    private val preferences: SharedPreferences by inject()
+    lateinit var authInterceptor: AuthInterceptor
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,41 +37,35 @@ class LoginFragment : Fragment(), CoroutineScope {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //backgroundLayout.getBackground().setAlpha(80)  // here the value is an integer not float
-
         registerLink.setOnClickListener {
-            it.findNavController() ?.navigate(R.id.action_loginFragment_to_registerUserFragment)
+            it.findNavController().navigate(R.id.action_loginFragment_to_registerUserFragment)
         }
-        btnLogar.setOnClickListener {view ->
+        btnLogar.setOnClickListener { view ->
             val user = User()
             user.email = edtEmail.text.toString()
             user.password = edtPassword.text.toString()
             //user.password = codificarBase64(edtPassword.text.toString())
 
             loginViewModel.checkAuth(user)
-            loginViewModel.token.observe(this, Observer {token ->
-                Toast.makeText(context,token.token,Toast.LENGTH_LONG).show()
+            loginViewModel.token.observe(this, Observer { token ->
+                Toast.makeText(context, token.token, Toast.LENGTH_LONG).show()
 
 //                val pref = context?.getSharedPreferences("Token",0)
                 val editor = preferences.edit()
-                editor?.putString("Token",token.token)
+                editor?.putString("Token", token.token)
+                editor?.putInt("ID",token.id)
                 editor?.apply()
 
-                launch{
-                    coroutineScope {
-                        withContext(Dispatchers.Default){authInterceptor = AuthInterceptor(preferences)}
-                        withContext(Dispatchers.Default){ view.findNavController().navigate(R.id.action_loginFragment_to_myMainActivity) }
-                    }
-                }
                 authInterceptor = AuthInterceptor(preferences)
+                edtEmail.text = null
+                edtPassword.text = null
 
-                Log.d("Token", token.token)
-                //Linha abaixo só será utilizada quando pegar o token
+                view.findNavController().navigate(R.id.action_loginFragment_to_myMainActivity)
             })
         }
 
         loginViewModel.messageError.observe(this, Observer {
-            Toast.makeText(context,it,Toast.LENGTH_LONG).show()
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         })
 
     }

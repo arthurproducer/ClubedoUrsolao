@@ -1,20 +1,27 @@
 package br.com.arthur.clubedoursolao.view.list
 
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import br.com.arthur.clubedoursolao.R
 import br.com.arthur.clubedoursolao.model.LendingProduct
 import br.com.arthur.clubedoursolao.model.Product
+import br.com.arthur.clubedoursolao.model.User
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_my_product.*
 import kotlinx.android.synthetic.main.row_cardview_myproducts.*
+import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -22,8 +29,9 @@ import kotlinx.android.synthetic.main.row_cardview_myproducts.*
  */
 class MyProductFragment : Fragment() {
 
-    //private var listProducts = mutableListOf<Product>()
-    //private var adapter = MyProductAdapter(listProducts)
+    private val listMyProductViewModel : MyProductViewModel by viewModel()
+    private val preferences: SharedPreferences by inject()
+    private val picasso: Picasso by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,14 +44,21 @@ class MyProductFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val listProducts = getMyList()
-        val adapter = MyProductAdapter(listProducts)
+        val user = User()
+        user.id =  preferences.getInt("ID",0)
 
-        myProductRecyclerView.adapter = adapter
+        listMyProductViewModel.getMyProducts(user)
 
-        val layoutManager = LinearLayoutManager(context)
+        listMyProductViewModel.messageError.observe(this, Observer {
+            if(it != "") {
+                Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            }
+        })
 
-        myProductRecyclerView.layoutManager = layoutManager
+        listMyProductViewModel.lendingProducts.observe(this, Observer {
+            myProductRecyclerView.adapter = MyProductAdapter(it,picasso)
+            myProductRecyclerView.layoutManager = LinearLayoutManager(context)
+        })
 
         if (btnDetalhes == null) {
 
@@ -52,19 +67,5 @@ class MyProductFragment : Fragment() {
                 it.findNavController().navigate(R.id.action_item_myProducts_to_productDetailsFragment)
             }
         }
-
     }
-
-    private fun getMyList() : ArrayList<LendingProduct>{
-
-        val prod = ArrayList<LendingProduct>()
-        prod.add(LendingProduct(1,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
-        prod.add(LendingProduct(2,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
-        prod.add(LendingProduct(3,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
-        prod.add(LendingProduct(4,"Machado","Rua da Paz",R.drawable.logo_ursolao_light,R.color.colorNegativeStatus,1,"Antônio","14/10/2019"))
-
-        return prod
-    }
-
-
 }

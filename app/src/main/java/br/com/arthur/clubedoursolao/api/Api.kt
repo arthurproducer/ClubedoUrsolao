@@ -1,5 +1,6 @@
 package br.com.arthur.clubedoursolao.api
 
+import android.content.SharedPreferences
 import br.com.arthur.clubedoursolao.model.*
 import br.com.arthur.clubedoursolao.util.Constants
 import retrofit2.Call
@@ -18,7 +19,13 @@ interface Api{
 
     @GET("/items/category/Clothes")
     fun getForCategory() :Call<List<Product>>
-//
+
+    @GET("/lendings/clients/{id}")
+    fun getMyProducts(@Path("id") id: Int) : Call<List<LendingProduct>>
+
+
+    companion object
+
 //    @GET("/api/pokemon")
 //    fun getPokemons(
 //        @Query("size") size: Int,

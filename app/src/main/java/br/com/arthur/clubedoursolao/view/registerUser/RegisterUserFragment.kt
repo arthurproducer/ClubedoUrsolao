@@ -44,7 +44,6 @@ class RegisterUserFragment : Fragment() {
             //user.password = codificarBase64(edtPassword.text.toString())
 
             registerUserViewModel.registerUser(user)
-                //Linha abaixo só será utilizada quando pegar o token
 
                 view.findNavController().navigate(R.id.action_registerUserFragment_to_loginFragment)
             }
