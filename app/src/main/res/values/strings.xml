@@ -26,5 +26,13 @@
     <string name="title_about">Sobre</string>
     <string name="title_exit">Sair</string>
 
+    <!-- Invite -->
+    <string name="invite">Ligue para seus amigos, compartilhe nas redes sociais para que todos possam fazer parte do
+        clube.
+    </string>
+    <string name="developerName">DESENVOLVIDO POR \n Arthur Sales e Andrea Floriano \n Versão 1.0</string>
+    <string name="Invite_Call">Ligar</string>
+    <string name="Invite_Share">Compartilhar</string>
+
 
 </resources>

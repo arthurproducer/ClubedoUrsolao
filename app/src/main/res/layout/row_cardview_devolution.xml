@@ -90,7 +90,7 @@
 
         <Button
                 android:text=">"
-                android:background="@color/colorButton"
+                android:background="@color/colorButtonDetails"
                 android:textColor="@color/colorTextSecundary"
                 android:layout_width="20dp"
                 android:layout_height="0dp"

@@ -28,4 +28,6 @@
               android:name="br.com.arthur.clubedoursolao.view.list.DevolutionFragment"
               android:label="@string/title_devolution"
               tools:layout="@layout/fragment_devolution"/>
+    <fragment android:id="@+id/item_about" android:name="br.com.arthur.clubedoursolao.view.about.AboutFragment"
+              android:label="fragment_about" tools:layout="@layout/fragment_about"/>
 </navigation>
