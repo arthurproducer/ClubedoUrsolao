@@ -1,4 +1,4 @@
-package br.com.arthur.clubedoursolao.firebase
+package br.com.arthur.clubedoursolao.util
 
 import br.com.arthur.clubedoursolao.BuildConfig
 import br.com.arthur.clubedoursolao.R

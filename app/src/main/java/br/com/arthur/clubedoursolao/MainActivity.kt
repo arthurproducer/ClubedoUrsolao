@@ -13,12 +13,13 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import br.com.arthur.clubedoursolao.common.BaseActivity
 import br.com.arthur.clubedoursolao.view.list.MyProductFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 
- class MainActivity : AppCompatActivity() {
+ class MainActivity : BaseActivity() {
 
      private val drawerToggle: ActionBarDrawerToggle by lazy{
          ActionBarDrawerToggle(this,

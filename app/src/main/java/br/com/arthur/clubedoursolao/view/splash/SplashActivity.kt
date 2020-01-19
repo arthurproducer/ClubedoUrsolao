@@ -1,6 +1,5 @@
 package br.com.arthur.clubedoursolao.view.splash
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.com.arthur.clubedoursolao.R
@@ -8,18 +7,16 @@ import br.com.arthur.clubedoursolao.LoginActivity
 import android.content.Intent
 import android.net.Uri
 import android.os.Handler
+import android.widget.BaseAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import br.com.arthur.clubedoursolao.BuildConfig
-import br.com.arthur.clubedoursolao.firebase.RemoteConfig
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import br.com.arthur.clubedoursolao.common.BaseActivity
+import br.com.arthur.clubedoursolao.util.RemoteConfig
 import org.koin.android.viewmodel.ext.android.viewModel
-import kotlin.coroutines.CoroutineContext
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
 
     val splashViewModel: SplashViewModel by viewModel()
     //    var cont = 0

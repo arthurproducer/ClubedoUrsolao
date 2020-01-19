@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "370731315058",
+    "firebase_url": "https://clubedoursolao-861f1.firebaseio.com",
+    "project_id": "clubedoursolao-861f1",
+    "storage_bucket": "clubedoursolao-861f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370731315058:android:f6e37f6265c2465921f7eb",
+        "android_client_info": {
+          "package_name": "br.com.arthur.clubedoursolao"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370731315058-p45abho1le9fg50a8mh50eo9qujthi1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.arthur.clubedoursolao",
+            "certificate_hash": "d2c2883bdc82a51e3217f4942dc0dee3a4a7b7eb"
+          }
+        },
+        {
+          "client_id": "370731315058-g2tt03bd3hc8s70glrckos1du14u8iva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhGJ68SGQE7Wf9yYgi5IPBCg8Hfp98fp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370731315058-g2tt03bd3hc8s70glrckos1du14u8iva.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
