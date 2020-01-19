@@ -8,40 +8,54 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.arthur.clubedoursolao.R
 import br.com.arthur.clubedoursolao.model.LendingProduct
-import br.com.arthur.clubedoursolao.model.Product
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.lender_loan_date.view.*
-import kotlinx.android.synthetic.main.row_cardview_myproducts.view.*
+import kotlinx.android.synthetic.main.row_cardview_devolution.view.*
 
 class DevolutionAdapter(
-    private val listProducts : ArrayList<LendingProduct>
-) : RecyclerView.Adapter<VHProductDevolution>(){
+    private val listlendingProducts: List<LendingProduct>,
+    val picasso: Picasso,
+    val longclickListener: (LendingProduct) -> Unit) : RecyclerView.Adapter<VHLendingProductDevolution>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHProductDevolution {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHLendingProductDevolution {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.row_cardview_devolution,parent,false)
-        val vh = VHProductDevolution(v)
+        val vh = VHLendingProductDevolution(v)
 
         return vh
     }
 
-    override fun getItemCount(): Int = listProducts.size
+    override fun getItemCount(): Int = listlendingProducts.size
 
-    override fun onBindViewHolder(holder: VHProductDevolution, position: Int) {
-        val product = listProducts[position]
-//        holder.statusProduct.setColorFilter(product.status)
-//        holder.imgProduct.setImageResource(product.photo)
-        holder.txtCardTitle.text = product.title
-//        holder.txtLocation.text = product.address
-//        holder.tenantProduct.text = product.owner_name
-        holder.txtLoanDate.text = product.returnDate
+    override fun onBindViewHolder(holder: VHLendingProductDevolution, position: Int) {
+        val lendingProduct = listlendingProducts[position]
+        holder.bindView(lendingProduct,picasso,longclickListener)
     }
 
 }
 
-class VHProductDevolution(itemView: View) : RecyclerView.ViewHolder(itemView){
-    val statusProduct : ImageView = itemView.backgroundStatusProduct
-    val imgProduct : ImageView = itemView.imgProduct
-    val txtCardTitle: TextView = itemView.txtCardTitle
-    val txtLocation : TextView = itemView.txtLocation
-    val tenantProduct : TextView = itemView.txtLenderName
-    val txtLoanDate : TextView = itemView.txtLoanDate
+class VHLendingProductDevolution(itemView: View) : RecyclerView.ViewHolder(itemView){
+
+    fun bindView(
+        lendingProduct: LendingProduct,
+        picasso: Picasso,
+        longclickListener: (LendingProduct) -> Unit) = with(itemView) {
+        if (lendingProduct.status.equals("Enabled")) {
+            backgroundStatusProduct.setColorFilter(R.color.colorPositiveStatus)
+        } else {
+            backgroundStatusProduct.setColorFilter(R.color.colorNegativeStatus)
+        }
+
+        txtCardTitle.text = lendingProduct.title
+        if(lendingProduct.situation == 1){
+            txtLocation.text = "Pego emprestado com:"
+            txtLenderName.text = lendingProduct.owner_lending
+            txtLoanDate.text = lendingProduct.returnDate
+
+        }else{
+            txtLocation.text = "Tinha nem que estar aqui!!!"
+            view_lender_loan_date.visibility = View.GONE
+        }
+
+        setOnClickListener{longclickListener(lendingProduct)}
+    }
 }

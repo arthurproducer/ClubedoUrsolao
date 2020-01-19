@@ -64,4 +64,46 @@ class ProductRepositoryImpl(val api : Api): ProductRepository{
                 }
             })
     }
+
+    override fun getMyDevolutionProducts(
+        user: User,
+        onComplete: (List<LendingProduct>?) -> Unit,
+        onError: (Throwable?) -> Unit
+    ) {
+        api.getMyDevolutionProducts(user.id)
+            .enqueue(object: Callback<List<LendingProduct>>{
+                override fun onFailure(call: Call<List<LendingProduct>>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<List<LendingProduct>>, response: Response<List<LendingProduct>>) {
+                    if(response.isSuccessful){
+                        onComplete(response.body())
+                    } else{
+                        onError(Throwable("Não foi possível realizar a chamada."))
+                    }
+                }
+            })
+    }
+
+    override fun returnDevolutionProduct(
+        devolutionResponse: DevolutionResponse,
+        onComplete: () -> Unit,
+        onError: (Throwable?) -> Unit
+    ) {
+        api.returnDevolutionProduct(devolutionResponse)
+            .enqueue(object : Callback<LendingProduct> {
+                override fun onFailure(call: Call<LendingProduct>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<LendingProduct>, response: Response<LendingProduct>) {
+                    if(response.isSuccessful){
+                        onComplete()
+                    } else{
+                        onError(Throwable("Lista está vazia!"))
+                    }
+                }
+            })
+    }
 }

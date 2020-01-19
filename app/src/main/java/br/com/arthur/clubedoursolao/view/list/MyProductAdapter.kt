@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.row_cardview_myproducts.*
 import kotlinx.android.synthetic.main.row_cardview_myproducts.view.*
 
 class MyProductAdapter(
-
     private val listlendingProducts: List<LendingProduct>,
     val picasso: Picasso,
     val longclickListener: (LendingProduct) -> Unit) : RecyclerView.Adapter<VHLendingProduct>() {

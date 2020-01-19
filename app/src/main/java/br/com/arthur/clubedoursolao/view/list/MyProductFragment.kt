@@ -60,6 +60,11 @@ class MyProductFragment : Fragment() {
             myProductRecyclerView.layoutManager = LinearLayoutManager(context)
         })
 
+//        btnAvailableForLoan.setOnClickListener {
+//
+//        }
+
+
         if (btnDetalhes == null) {
 
         } else {

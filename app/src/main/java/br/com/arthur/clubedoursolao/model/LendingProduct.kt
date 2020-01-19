@@ -12,6 +12,7 @@ import org.parceler.ParcelConstructor
 @Parcelize
 data class LendingProduct(
     @SerializedName("Lending_ID") var id: Int,
+    @SerializedName("Item_ID") var product_id:Int,
     @SerializedName("Title") var title: String,
 //    @SerializedName("Address") var address: String,
     @SerializedName("Status_Borrowed") var situation: Int, //1 for true e 0 for false
