@@ -17,22 +17,17 @@ interface Api{
     @POST("/register")
     fun registerUser(@Body user : User) : Call<User>
 
-    @GET("/items/category/Clothes")
-    fun getForCategory() :Call<List<Product>>
+    @GET("/items/category/{category}")
+    fun getForCategory(@Path("category")category : String) :Call<List<Product>>
 
-    @GET("/lendings/clients/{id}")
+    @GET("/items/client/{id}")
     fun getMyProducts(@Path("id") id: Int) : Call<List<LendingProduct>>
 
     @PUT("/lendings/clients")
     fun updateMyProducts(@Body lendingProduct: LendingProduct) : Call<LendingProduct>
 
+    //registerMyProducts
 
-//    @GET("/api/pokemon")
-//    fun getPokemons(
-//        @Query("size") size: Int,
-//        @Query("sort") sort: String
-//    ): Call<PokemonResponse>
-//
-//    @PUT("/api/pokemon")
-//    fun updatePokemon(@Body pokemon: Pokemon) : Call<Pokemon>
+    //getMyDevolutionProducts
+
 }

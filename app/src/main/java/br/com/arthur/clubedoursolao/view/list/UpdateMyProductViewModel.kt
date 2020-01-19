@@ -5,9 +5,10 @@ import androidx.lifecycle.ViewModel
 import br.com.arthur.clubedoursolao.model.LendingProduct
 import br.com.arthur.clubedoursolao.model.User
 import br.com.arthur.clubedoursolao.repository.AuthRepository
+import br.com.arthur.clubedoursolao.repository.ProductRepository
 
 class UpdateMyProductViewModel(
-    private val authRepository: AuthRepository
+    private val productRepository: ProductRepository
 ) : ViewModel() {
 
     var isLoading = MutableLiveData<Boolean>()
@@ -20,7 +21,7 @@ class UpdateMyProductViewModel(
     fun updateMyProduct(lendingProduct: LendingProduct){
 
         isLoading.value = true
-        authRepository.updateMyProduct(lendingProduct,{
+        productRepository.updateMyProduct(lendingProduct,{
             isLoading.value = false
 //            lendingProducts.value = it
             messageResponse.value = "Dados gravados com sucesso"

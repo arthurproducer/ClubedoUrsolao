@@ -42,6 +42,7 @@
     <string name="situation_false">Não</string>
     <string name="hint_owner_lending">Para quem?</string>
     <string name="hint_endDate">Data final para devolução</string>
+    <string name="availableForLoan">Disponibilizar Produto</string>
 
 
 </resources>

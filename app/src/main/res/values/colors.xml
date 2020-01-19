@@ -28,4 +28,8 @@
     <color name="colorBackgroundValuation">#FFD15C</color>
     <color name="colorNegativeValuation">#7A271C</color>
 
+    <!--result Lending-->
+    <color name="youWinDark">#35A571</color>
+    <color name="youWinBackground">#B7F8C9</color>
+    <color name="gameOverBackground">#f8bbd0</color>
 </resources>

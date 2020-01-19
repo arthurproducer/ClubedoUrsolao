@@ -63,6 +63,7 @@ class VHLendingProduct(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }else{
             txtLocation.text = "Disponível para empréstimo"
             view_lender_loan_date.visibility = View.GONE
+            btnAvailableForLoan.visibility = View.VISIBLE
 //            txtLenderName.visibility = View.GONE
 //            txtLoanDate.visibility = View.GONE
         }

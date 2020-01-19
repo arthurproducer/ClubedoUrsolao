@@ -2,24 +2,26 @@ package br.com.arthur.clubedoursolao.repository
 
 import br.com.arthur.clubedoursolao.model.LendingProduct
 import br.com.arthur.clubedoursolao.model.Product
-import br.com.arthur.clubedoursolao.model.TokenResponse
 import br.com.arthur.clubedoursolao.model.User
 
-interface AuthRepository {
-    fun checkHealth(
-        onComplete: () -> Unit,
+
+interface ProductRepository {
+
+    fun getForCategory(
+        category : String,
+        onComplete: (List<Product>?) -> Unit,
         onError: (Throwable?) -> Unit
     )
 
-    fun checkAuth(
+    fun getMyProduct(
         user: User,
-        onComplete: (TokenResponse?) -> Unit,
+        onComplete: (List<LendingProduct>?) -> Unit,
         onError: (Throwable?) -> Unit
     )
 
-    fun registerUser(
-        user: User,
-        onComplete: () -> Unit,
+    fun updateMyProduct(
+        lendingProduct: LendingProduct,
+        onComplete: (LendingProduct?) -> Unit,
         onError: (Throwable?) -> Unit
     )
 }

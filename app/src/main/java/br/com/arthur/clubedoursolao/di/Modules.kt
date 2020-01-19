@@ -8,6 +8,8 @@ import br.com.arthur.clubedoursolao.api.AuthInterceptor
 import br.com.arthur.clubedoursolao.api.BaseInterceptor
 import br.com.arthur.clubedoursolao.repository.AuthRepository
 import br.com.arthur.clubedoursolao.repository.AuthRepositoryImpl
+import br.com.arthur.clubedoursolao.repository.ProductRepository
+import br.com.arthur.clubedoursolao.repository.ProductRepositoryImpl
 import br.com.arthur.clubedoursolao.util.Constants
 import br.com.arthur.clubedoursolao.view.category.CategoryViewModel
 import br.com.arthur.clubedoursolao.view.list.MyProductViewModel
@@ -40,6 +42,7 @@ val viewModelModule = module{
 
 val repositoryModule = module{
    single<AuthRepository>{AuthRepositoryImpl(get())}
+    single<ProductRepository>{ProductRepositoryImpl(get())}
 }
 
 val sharedPreferencesModule = module {

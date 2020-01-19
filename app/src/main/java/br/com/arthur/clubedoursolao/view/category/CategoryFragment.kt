@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.row_cardview_category.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class CategoryFragment : Fragment() {
+class CategoryFragment : Fragment(), View.OnClickListener {
 
     val listCategoryViewModel : CategoryViewModel by viewModel()
     val picasso: Picasso by inject()
@@ -35,8 +35,36 @@ class CategoryFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_category, container, false)
     }
 
+    override fun onClick(p0: View?) {
+        when(p0){
+            shortcutClothes -> {
+                listCategoryViewModel.categories.value = "Clothes"
+                listCategoryViewModel.getProducts()
+            }
+            shortcutShoes -> {listCategoryViewModel.categories.value ="Shoes"
+                listCategoryViewModel.getProducts()
+            }
+            shortcutToys -> {listCategoryViewModel.categories.value = "Toys"
+                listCategoryViewModel.getProducts()
+            }
+            shortcutTools -> {listCategoryViewModel.categories.value = "Tools"
+                listCategoryViewModel.getProducts()
+            }
+        }
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        listCategoryViewModel.categories.value = "Clothes"
+
+
+        shortcutClothes.setOnClickListener(this)
+        shortcutToys.setOnClickListener(this)
+        shortcutTools.setOnClickListener(this)
+        shortcutShoes.setOnClickListener(this)
 
         listCategoryViewModel.getProducts()
 
@@ -69,6 +97,8 @@ class CategoryFragment : Fragment() {
 //
 //        categoryRecyclerView.layoutManager = layoutManager
 
+
+
         if (btnDetalhes == null) {
 
         }else{
@@ -77,17 +107,4 @@ class CategoryFragment : Fragment() {
             }
         }
     }
-//
-//    private fun getMyList() : ArrayList<Product>{
-//
-//        val prod = ArrayList<Product>()
-//        prod.add(Product("Foice",R.color.colorNegativeStatus,R.drawable.logo_ursolao_light,"Rua da Paz","Ana","14/10/2019"))
-//        prod.add(Product("Foice",R.color.colorNegativeStatus,R.drawable.logo_ursolao_light,"Rua da Paz","Ana","14/10/2019"))
-//        prod.add(Product("Foice",R.color.colorNegativeStatus,R.drawable.logo_ursolao_light,"Rua da Paz","Ana","14/10/2019"))
-//        prod.add(Product("Foice",R.color.colorNegativeStatus,R.drawable.logo_ursolao_light,"Rua da Paz","Ana","14/10/2019"))
-//
-//        return prod
-//    }
-
-
 }

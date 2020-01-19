@@ -70,6 +70,15 @@
                      tools:layout_editor_absoluteY="62dp" tools:layout_editor_absoluteX="82dp"/>
         </FrameLayout>
 
+        <Button
+                android:id="@+id/btnAvailableForLoan"
+                android:text="@string/availableForLoan"
+                android:layout_width="wrap_content"
+                android:visibility="invisible"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/txtLocation"
+                app:layout_constraintStart_toStartOf="@+id/txtLocation"/>
+
         <androidx.cardview.widget.CardView
                 android:id="@+id/shortcutCardView"
                 android:layout_gravity="center"
