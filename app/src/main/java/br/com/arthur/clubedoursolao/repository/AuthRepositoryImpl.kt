@@ -21,7 +21,7 @@ class AuthRepositoryImpl(val api : Api): AuthRepository{
                     if(response.isSuccessful){
                         onComplete()//Ver o que vem aqui e se esse trecho de código é necessário
                     } else{
-                        onError(Throwable("Não foi possível realizar a chamaada."))
+                        onError(Throwable("Não foi possível realizar a chamaada. No Registro do Usuário."))
                     }
                 }
             })
@@ -77,7 +77,7 @@ class AuthRepositoryImpl(val api : Api): AuthRepository{
                     if(response.isSuccessful){
                         onComplete(response.body())
                     } else{
-                        onError(Throwable("Não foi possível realizar a chamaada."))
+                        onError(Throwable("Não foi possível realizar a chamada."))
                     }
                 }
             })
@@ -96,6 +96,27 @@ class AuthRepositoryImpl(val api : Api): AuthRepository{
                         onComplete(response.body())
                     } else{
                         onError(Throwable("Não foi possível realizar a chamada."))
+                    }
+                }
+            })
+    }
+
+    override fun updateMyProduct(
+        lendingProduct: LendingProduct,
+        onComplete: (LendingProduct?) -> Unit,
+        onError: (Throwable?) -> Unit
+    ) {
+        api.updateMyProducts(lendingProduct)
+            .enqueue(object: Callback<LendingProduct>{
+                override fun onFailure(call: Call<LendingProduct>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<LendingProduct>, response: Response<LendingProduct>) {
+                    if(response.isSuccessful){
+                        onComplete(response.body())
+                    } else{
+                        onError(Throwable("Não foi possível realizar a chamada. Update Failure ${response.body()} and ${response.errorBody()}"))
                     }
                 }
             })

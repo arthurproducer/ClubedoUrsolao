@@ -7,7 +7,7 @@ buildscript {
         version_constraint_layout = "1.1.3"
         version_lifecycle_extensions = "2.0.0"
         version_material = "1.0.0"
-        version_navigation = "1.0.0"
+        version_navigation = "2.1.0"
     }
     repositories {
         google()
@@ -15,6 +15,7 @@ buildscript {
         
     }
     dependencies {
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$version_navigation"
         classpath "com.android.tools.build:gradle:$gradle_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version_kotlin"
         // NOTE: Do not place your application dependencies here; they belong

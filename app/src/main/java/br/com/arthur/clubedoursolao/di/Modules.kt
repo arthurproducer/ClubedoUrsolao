@@ -11,6 +11,7 @@ import br.com.arthur.clubedoursolao.repository.AuthRepositoryImpl
 import br.com.arthur.clubedoursolao.util.Constants
 import br.com.arthur.clubedoursolao.view.category.CategoryViewModel
 import br.com.arthur.clubedoursolao.view.list.MyProductViewModel
+import br.com.arthur.clubedoursolao.view.list.UpdateMyProductViewModel
 import br.com.arthur.clubedoursolao.view.login.LoginViewModel
 import br.com.arthur.clubedoursolao.view.registerUser.RegisterUserViewModel
 import br.com.arthur.clubedoursolao.view.splash.SplashViewModel
@@ -34,6 +35,7 @@ val viewModelModule = module{
     viewModel { RegisterUserViewModel(get()) }
     viewModel { CategoryViewModel(get()) }
     viewModel {MyProductViewModel(get())}
+    viewModel {UpdateMyProductViewModel(get())}
 }
 
 val repositoryModule = module{

@@ -8,7 +8,9 @@
     <color name="colorTextPrimary">#7A561C</color>
     <color name="colorTextSecundary">#FFFFFF</color>
     <color name="colorEditTextDefault">#EEEEEE</color>
-    <color name="colorAccent">#D81B60</color>
+    <!--<color name="colorAccent">#D81B60</color>-->
+    <color name="colorAccent">#EEC53F</color>
+
     <!--<color name="colorAccent">#47310C</color>-->
 
     <color name="colorBlueLightApp">#3F68EE</color>

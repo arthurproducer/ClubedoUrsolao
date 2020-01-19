@@ -33,4 +33,10 @@ interface AuthRepository {
         onComplete: (List<LendingProduct>?) -> Unit,
         onError: (Throwable?) -> Unit
     )
+
+    fun updateMyProduct(
+        lendingProduct: LendingProduct,
+        onComplete: (LendingProduct?) -> Unit,
+        onError: (Throwable?) -> Unit
+    )
 }

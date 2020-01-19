@@ -23,8 +23,9 @@ interface Api{
     @GET("/lendings/clients/{id}")
     fun getMyProducts(@Path("id") id: Int) : Call<List<LendingProduct>>
 
+    @PUT("/lendings/clients")
+    fun updateMyProducts(@Body lendingProduct: LendingProduct) : Call<LendingProduct>
 
-    companion object
 
 //    @GET("/api/pokemon")
 //    fun getPokemons(

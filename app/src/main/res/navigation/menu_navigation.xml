@@ -13,6 +13,8 @@
 
         <action android:id="@+id/action_item_myProducts_to_productDetailsFragment"
                 app:destination="@id/productDetailsFragment"/>
+        <action android:id="@+id/action_item_myProducts_to_updateMyProductFragment"
+                app:destination="@id/updateMyProductFragment"/>
     </fragment>
 
     <fragment android:id="@+id/productDetailsFragment"
@@ -30,4 +32,12 @@
               tools:layout="@layout/fragment_devolution"/>
     <fragment android:id="@+id/item_about" android:name="br.com.arthur.clubedoursolao.view.about.AboutFragment"
               android:label="fragment_about" tools:layout="@layout/fragment_about"/>
+
+    <dialog android:id="@+id/updateMyProductFragment"
+              android:name="br.com.arthur.clubedoursolao.view.list.UpdateMyProductDialogFragment"
+            tools:layout="@layout/dialog_update_my_product"
+              android:label="UpdateMyProductFragment">
+        <argument android:name="lendingProduct" app:argType="br.com.arthur.clubedoursolao.model.LendingProduct"/>
+        <argument android:name="Test" app:argType="string" android:defaultValue="Error"/>
+    </dialog>
 </navigation>

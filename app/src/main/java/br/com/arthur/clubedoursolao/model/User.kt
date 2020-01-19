@@ -1,9 +1,13 @@
 package br.com.arthur.clubedoursolao.model
 
+import android.os.Parcelable
+import androidx.annotation.Keep
+import kotlinx.android.parcel.Parcelize
 import org.parceler.Parcel
 import org.parceler.ParcelConstructor
 
-@Parcel
+@Keep
+@Parcelize
 data class User (
     var id : Int,
     var name : String,
@@ -13,6 +17,6 @@ data class User (
     var arecode : Int,
     var phone : String,
     var zipcode : String
-){
-    @ParcelConstructor constructor() : this(0,"","","",0,0,"","")
+):Parcelable {
+    constructor() : this(0,"","","",0,0,"","")
 }

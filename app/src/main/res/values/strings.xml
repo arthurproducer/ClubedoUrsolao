@@ -34,5 +34,14 @@
     <string name="Invite_Call">Ligar</string>
     <string name="Invite_Share">Compartilhar</string>
 
+    <!-- From LendingProduct and Product-->
+    <string name="updateMyProduct">Atualizando Dados</string>
+    <string name="hint_title">Novo Título</string>
+    <string name="situation_question">O produto já foi emprestado?</string>
+    <string name="situation_true">Sim</string>
+    <string name="situation_false">Não</string>
+    <string name="hint_owner_lending">Para quem?</string>
+    <string name="hint_endDate">Data final para devolução</string>
+
 
 </resources>
