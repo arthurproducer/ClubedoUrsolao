@@ -10,16 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.arthur.clubedoursolao.R
 import br.com.arthur.clubedoursolao.model.LendingProduct
 import br.com.arthur.clubedoursolao.model.Product
+import br.com.arthur.clubedoursolao.util.ItemLongClickListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.lender_loan_date.view.*
 import kotlinx.android.synthetic.main.row_cardview_myproducts.*
 import kotlinx.android.synthetic.main.row_cardview_myproducts.view.*
 
 class MyProductAdapter(
-
     private val listlendingProducts: List<LendingProduct>,
-    val picasso: Picasso
-) : RecyclerView.Adapter<VHLendingProduct>() {
+    val picasso: Picasso,
+    val longclickListener: (LendingProduct) -> Unit) : RecyclerView.Adapter<VHLendingProduct>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHLendingProduct {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.row_cardview_myproducts, parent, false)
@@ -32,16 +32,19 @@ class MyProductAdapter(
 
     override fun onBindViewHolder(holder: VHLendingProduct, position: Int) {
         val lendingProduct = listlendingProducts[position]
-        holder.bindView(lendingProduct, picasso)
+        holder.bindView(lendingProduct, picasso,longclickListener)
     }
+
 }
 
 class VHLendingProduct(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+//    lateinit var itemLongClickListener : ItemLongClickListener
+
     fun bindView(
         lendingProduct: LendingProduct,
-        picasso: Picasso
-    ) = with(itemView) {
+        picasso: Picasso,
+        longclickListener: (LendingProduct) -> Unit) = with(itemView) {
         if (lendingProduct.status.equals("Enabled")) {
             backgroundStatusProduct.setColorFilter(R.color.colorPositiveStatus)
         } else {
@@ -49,6 +52,7 @@ class VHLendingProduct(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
 //                             imgProduct.setImageResource(product.photo)
 //        picasso.load("https://pokedexdx.herokuapp.com${product.photo}").into(ivPokemon)
+
         txtCardTitle.text = lendingProduct.title
         if(lendingProduct.situation == 1){
             txtLocation.text = "Emprestado para:"
@@ -58,10 +62,20 @@ class VHLendingProduct(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }else{
             txtLocation.text = "Disponível para empréstimo"
             view_lender_loan_date.visibility = View.GONE
+            btnAvailableForLoan.visibility = View.VISIBLE
 //            txtLenderName.visibility = View.GONE
 //            txtLoanDate.visibility = View.GONE
-
         }
+
+        setOnClickListener{longclickListener(lendingProduct)}
+//        itemLongClickListener = longclickListener
+//        itemView.setOnLongClickListener(longClick)
+//        longclickListener.onItemLongClick(it,)
+
     }
+//    override fun onLongClick(p0: View): Boolean {
+//        this.itemLongClickListener.onItemLongClick(p0,layoutPosition)
+//        return false
+//    }
 }
 

@@ -3,21 +3,33 @@
     <color name="colorPrimary">#1C407A</color>
     <color name="colorPrimaryDark">#00020D</color>
     <color name="colorSecundary">#EEC53F</color>
+    <color name="colorTertiary">#FFFFFF</color>
 
     <color name="colorTextPrimary">#7A561C</color>
     <color name="colorTextSecundary">#FFFFFF</color>
     <color name="colorEditTextDefault">#EEEEEE</color>
     <!--<color name="colorAccent">#D81B60</color>-->
-    <color name="colorAccent">#47310C</color>
+    <color name="colorAccent">#EEC53F</color>
+
+    <!--<color name="colorAccent">#47310C</color>-->
+
     <color name="colorBlueLightApp">#3F68EE</color>
-    <color name="colorButton">#1C407A</color>
+
+    <color name="colorButton">#FFFFFF</color>
+    <!--<color name="colorButtonDetails">#965500</color>-->
+    <color name="colorButtonDetails">#1C407A</color>
+
+
     <color name="colorNegativeStatus">#B6402F</color>
     <color name="colorMediumStatus">#F6B64C</color>
     <color name="colorPositiveStatus">@color/colorPositiveStatusLight</color>
     <color name="colorPositiveStatusDark">#407A1C</color>
     <color name="colorPositiveStatusLight">#67BE35</color>
-    <color name="colorButtonDetails">#965500</color>
     <color name="colorBackgroundValuation">#FFD15C</color>
     <color name="colorNegativeValuation">#7A271C</color>
 
+    <!--result Lending-->
+    <color name="youWinDark">#35A571</color>
+    <color name="youWinBackground">#B7F8C9</color>
+    <color name="gameOverBackground">#f8bbd0</color>
 </resources>

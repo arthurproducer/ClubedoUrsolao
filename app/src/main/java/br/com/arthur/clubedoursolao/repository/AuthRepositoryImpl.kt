@@ -21,7 +21,7 @@ class AuthRepositoryImpl(val api : Api): AuthRepository{
                     if(response.isSuccessful){
                         onComplete()//Ver o que vem aqui e se esse trecho de código é necessário
                     } else{
-                        onError(Throwable("Não foi possível realizar a chamaada."))
+                        onError(Throwable("Não foi possível realizar a chamaada. No Registro do Usuário."))
                     }
                 }
             })
@@ -60,42 +60,6 @@ class AuthRepositoryImpl(val api : Api): AuthRepository{
                         onComplete()
                     } else{
                         onError(Throwable("Não foi possível realizar a chamaada."))
-                    }
-                }
-            })
-    }
-
-    override fun getForCategory(onComplete: (List<Product>?) -> Unit, onError: (Throwable?) -> Unit) {
-
-        api.getForCategory()
-            .enqueue(object : Callback<List<Product>?> {
-                override fun onFailure(call: Call<List<Product>?>, t: Throwable) {
-                    onError(t)
-                }
-
-                override fun onResponse(call: Call<List<Product>?>, response: Response<List<Product>?>) {
-                    if(response.isSuccessful){
-                        onComplete(response.body())
-                    } else{
-                        onError(Throwable("Não foi possível realizar a chamaada."))
-                    }
-                }
-            })
-    }
-
-    override fun getMyProduct(user: User, onComplete: (List<LendingProduct>?) -> Unit, onError: (Throwable?) -> Unit) {
-
-        api.getMyProducts(user.id)
-            .enqueue(object: Callback<List<LendingProduct>>{
-                override fun onFailure(call: Call<List<LendingProduct>>, t: Throwable) {
-                    onError(t)
-                }
-
-                override fun onResponse(call: Call<List<LendingProduct>>, response: Response<List<LendingProduct>>) {
-                    if(response.isSuccessful){
-                        onComplete(response.body())
-                    } else{
-                        onError(Throwable("Não foi possível realizar a chamada."))
                     }
                 }
             })

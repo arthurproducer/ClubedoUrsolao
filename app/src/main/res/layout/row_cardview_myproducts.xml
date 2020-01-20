@@ -70,6 +70,19 @@
                      tools:layout_editor_absoluteY="62dp" tools:layout_editor_absoluteX="82dp"/>
         </FrameLayout>
 
+        <Button
+                android:id="@+id/btnAvailableForLoan"
+                android:text="@string/availableForLoan"
+                android:background="@drawable/background_button_details"
+                android:textColor="@color/colorTextSecundary"
+                android:layout_width="193.3dp"
+                android:layout_height="28dp"
+                android:visibility="invisible"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@+id/txtLocation"
+                app:layout_constraintStart_toStartOf="@+id/txtLocation"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
         <androidx.cardview.widget.CardView
                 android:id="@+id/shortcutCardView"
                 android:layout_gravity="center"
@@ -89,7 +102,7 @@
 
         <Button
                 android:text=">"
-                android:background="@color/colorButton"
+                android:background="@color/colorButtonDetails"
                 android:textColor="@color/colorTextSecundary"
                 android:layout_width="20dp"
                 android:layout_height="0dp"

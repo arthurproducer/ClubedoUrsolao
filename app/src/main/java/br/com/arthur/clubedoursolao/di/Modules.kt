@@ -8,9 +8,13 @@ import br.com.arthur.clubedoursolao.api.AuthInterceptor
 import br.com.arthur.clubedoursolao.api.BaseInterceptor
 import br.com.arthur.clubedoursolao.repository.AuthRepository
 import br.com.arthur.clubedoursolao.repository.AuthRepositoryImpl
+import br.com.arthur.clubedoursolao.repository.ProductRepository
+import br.com.arthur.clubedoursolao.repository.ProductRepositoryImpl
 import br.com.arthur.clubedoursolao.util.Constants
 import br.com.arthur.clubedoursolao.view.category.CategoryViewModel
+import br.com.arthur.clubedoursolao.view.list.DevolutionViewModel
 import br.com.arthur.clubedoursolao.view.list.MyProductViewModel
+import br.com.arthur.clubedoursolao.view.list.UpdateMyProductViewModel
 import br.com.arthur.clubedoursolao.view.login.LoginViewModel
 import br.com.arthur.clubedoursolao.view.registerUser.RegisterUserViewModel
 import br.com.arthur.clubedoursolao.view.splash.SplashViewModel
@@ -28,16 +32,19 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val viewModelModule = module{
+val viewModelModule = module {
     viewModel { SplashViewModel(get()) }
     viewModel { LoginViewModel(get()) }
     viewModel { RegisterUserViewModel(get()) }
     viewModel { CategoryViewModel(get()) }
-    viewModel {MyProductViewModel(get())}
+    viewModel { MyProductViewModel(get()) }
+    viewModel { UpdateMyProductViewModel(get()) }
+    viewModel { DevolutionViewModel(get()) }
 }
 
-val repositoryModule = module{
-   single<AuthRepository>{AuthRepositoryImpl(get())}
+val repositoryModule = module {
+    single<AuthRepository> { AuthRepositoryImpl(get()) }
+    single<ProductRepository> { ProductRepositoryImpl(get()) }
 }
 
 val sharedPreferencesModule = module {
@@ -47,15 +54,15 @@ val sharedPreferencesModule = module {
 }
 
 val networkModule = module {
-//    single<Interceptor>(named("base")){ BaseInterceptor() }
-    single<Interceptor>(named("auth")){ AuthInterceptor(get()) }
-    single{createOkhttpClientAuth(get(named("auth"))) }
+    //    single<Interceptor>(named("base")){ BaseInterceptor() }
+    single<Interceptor>(named("auth")) { AuthInterceptor(get()) }
+    single { createOkhttpClientAuth(get(named("auth"))) }
 //    factory{
 ////        createOkhttpClientAuth(get(named("base")))
 //    }
-    single{ createNetworkClient(get(),get(named("baseURL"))).create(Api::class.java)}
-    single { createPicassoAuth(get(),get()) }
-    single(named("baseURL")){Constants.baseURL}
+    single { createNetworkClient(get(), get(named("baseURL"))).create(Api::class.java) }
+    single { createPicassoAuth(get(), get()) }
+    single(named("baseURL")) { Constants.baseURL }
 }
 
 private fun createPicassoAuth(context: Context, okHttpClient: OkHttpClient): Picasso {
@@ -65,15 +72,17 @@ private fun createPicassoAuth(context: Context, okHttpClient: OkHttpClient): Pic
         .build()
 }
 
-private fun provideSettingsPreferences(app: Application): SharedPreferences = app.getSharedPreferences("Token",Context.MODE_PRIVATE)
+private fun provideSettingsPreferences(app: Application): SharedPreferences =
+    app.getSharedPreferences("Token", Context.MODE_PRIVATE)
 
-private fun createNetworkClient(okHttpClient: OkHttpClient, baseUrl : String): Retrofit {
+private fun createNetworkClient(okHttpClient: OkHttpClient, baseUrl: String): Retrofit {
     return Retrofit.Builder()
         .client(okHttpClient)
         .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }
+
 private fun createOkhttpClientAuth(authInterceptor: Interceptor): OkHttpClient {
     val builder = OkHttpClient.Builder()
         .addInterceptor(authInterceptor)

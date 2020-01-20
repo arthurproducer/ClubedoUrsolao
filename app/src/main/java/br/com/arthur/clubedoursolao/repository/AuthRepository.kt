@@ -22,15 +22,4 @@ interface AuthRepository {
         onComplete: () -> Unit,
         onError: (Throwable?) -> Unit
     )
-
-    fun getForCategory(
-        onComplete: (List<Product>?) -> Unit,
-        onError: (Throwable?) -> Unit
-    )
-
-    fun getMyProduct(
-        user: User,
-        onComplete: (List<LendingProduct>?) -> Unit,
-        onError: (Throwable?) -> Unit
-    )
 }

@@ -13,7 +13,7 @@
             android:layout_width="128dp"
             android:layout_height="128dp"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="bear.json"
+            app:lottie_fileName="bear_yellow.json"
             app:lottie_loop="true" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="8dp"
