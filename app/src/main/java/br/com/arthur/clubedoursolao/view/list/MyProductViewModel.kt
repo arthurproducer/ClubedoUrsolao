@@ -3,6 +3,7 @@ package br.com.arthur.clubedoursolao.view.list
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.arthur.clubedoursolao.model.LendingProduct
+import br.com.arthur.clubedoursolao.model.Product
 import br.com.arthur.clubedoursolao.model.User
 import br.com.arthur.clubedoursolao.repository.AuthRepository
 import br.com.arthur.clubedoursolao.repository.ProductRepository

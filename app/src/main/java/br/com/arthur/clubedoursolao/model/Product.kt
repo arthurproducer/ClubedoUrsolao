@@ -12,13 +12,15 @@ import java.util.*
 @Keep
 @Parcelize
 data class Product(
-    @SerializedName("ID") var id : Int,
-    @SerializedName("Title") var title : String,
+    @SerializedName("ID") var id: Int,
+    @SerializedName("Title") var title: String,
+    @SerializedName("descr") var descr: String,
+    @SerializedName("category") var category: String,
     @SerializedName("Address") var address: String,
     @SerializedName("Photo") var photo: String,
-    @SerializedName("Status") var status : String,
-    @SerializedName("Owner_ID") var owner_id : Int,
-    @SerializedName("Owner_Name") var owner_name : String):Parcelable
-//{
-//    @ParcelConstructor constructor() : this(0,"","","","",0,"")
-//}
+    @SerializedName("Status") var status: String,
+    @SerializedName("Owner_ID") var owner_id: Int,
+    @SerializedName("Owner_Name") var owner_name: String
+) : Parcelable {
+    constructor() : this(0, "", "", "", "", "", "", 0, "")
+}

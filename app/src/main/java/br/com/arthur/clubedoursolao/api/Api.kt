@@ -23,10 +23,12 @@ interface Api{
     @GET("/items/client/{id}")
     fun getMyProducts(@Path("id") id: Int) : Call<List<LendingProduct>>
 
-    @PUT("/lendings/clients/{id}")
+    @PUT("/items")
     fun updateMyProducts(@Body lendingProduct: LendingProduct) : Call<LendingProduct>
 
     //registerMyProducts
+    @POST("/items")
+    fun registerMyNewProducts(@Body product: Product) : Call<Product>
 
     @GET("/lendings/clients/{id}")
     fun getMyDevolutionProducts(@Path("id") id: Int) : Call<List<LendingProduct>>
