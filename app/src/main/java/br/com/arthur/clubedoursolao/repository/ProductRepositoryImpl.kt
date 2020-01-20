@@ -65,6 +65,27 @@ class ProductRepositoryImpl(val api : Api): ProductRepository{
             })
     }
 
+    override fun registerMyNewProduct(
+        product: Product,
+        onComplete: () -> Unit,
+        onError: (Throwable?) -> Unit
+    ) {
+        api.registerMyNewProducts(product)
+            .enqueue(object : Callback<Product> {
+                override fun onFailure(call: Call<Product>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<Product>, response: Response<Product>) {
+                    if(response.isSuccessful){
+                        onComplete()
+                    } else{
+                        onError(Throwable("Não foi possível registrar um novo produto!"))
+                    }
+                }
+            })
+    }
+
     override fun getMyDevolutionProducts(
         user: User,
         onComplete: (List<LendingProduct>?) -> Unit,

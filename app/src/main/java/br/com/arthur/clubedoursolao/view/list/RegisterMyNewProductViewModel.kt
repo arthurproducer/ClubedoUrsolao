@@ -3,11 +3,12 @@ package br.com.arthur.clubedoursolao.view.list
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.arthur.clubedoursolao.model.LendingProduct
+import br.com.arthur.clubedoursolao.model.Product
 import br.com.arthur.clubedoursolao.model.User
 import br.com.arthur.clubedoursolao.repository.AuthRepository
 import br.com.arthur.clubedoursolao.repository.ProductRepository
 
-class UpdateMyProductViewModel(
+class RegisterMyNewProductViewModel(
     private val productRepository: ProductRepository
 ) : ViewModel() {
 
@@ -15,29 +16,18 @@ class UpdateMyProductViewModel(
     val messageResponse = MutableLiveData<String>()
 //    val lendingProducts: MutableLiveData<List<LendingProduct>> = MutableLiveData()
 
-    fun updateMyProduct(lendingProduct: LendingProduct){
+    fun registerMyNewProduct(product: Product){
 
         isLoading.value = true
-        productRepository.updateMyProduct(lendingProduct,{
+        productRepository.registerMyNewProduct(product,{
             isLoading.value = false
 //            lendingProducts.value = it
             messageResponse.value = "Dados gravados com sucesso"
         },{
-//            lendingProducts.value = emptyList()
+            //            lendingProducts.value = emptyList()
             isLoading.value = false
             messageResponse.value = it?.message
         })
 
     }
-//
-//    fun loadHotel(id: Long): LiveData<Hotel> {
-//        return repository.hotelById(id)
-//    }
-//
-//    fun saveHotel(hotel: Hotel): Boolean {
-//        return validator.validate(hotel)
-//            .also { validated ->
-//                if (validated) repository.save(hotel)
-//            }
-//    }
 }

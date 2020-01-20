@@ -52,10 +52,13 @@ class MyProductFragment : Fragment() {
 
         listMyProductViewModel.lendingProducts.observe(this, Observer {
             myProductRecyclerView.adapter = MyProductAdapter(it, picasso){
-                val action = MyProductFragmentDirections.actionItemMyProductsToUpdateMyProductFragment(it,"Booora!")
-                view.findNavController().navigate(action)
-//                val action = MyProductFragmentDirections.actionItemMyProductsToUpdateMyProductFragment("teste",it) // Estou enviando aqui o lendingProduct porém preciso recebe-lo no Dialog
-//                view.findNavController().navigate(action)
+
+                if(it.situation == 1){
+                    Toast.makeText(context,"Item emprestado não pode ser alterado!",Toast.LENGTH_LONG).show()
+                }else{
+                    val action = MyProductFragmentDirections.actionItemMyProductsToUpdateMyProductFragment(it)
+                    view.findNavController().navigate(action)
+                }
             }
             myProductRecyclerView.layoutManager = LinearLayoutManager(context)
         })
@@ -73,12 +76,10 @@ class MyProductFragment : Fragment() {
             }
         }
 
-//        fab.setOnClickListener { view ->
-//            val action = MyProductFragmentDirections.actionItemMyProductsToUpdateMyProductFragment("Titulo teste")
-//            view.findNavController().navigate(action)
-
-            //Tratar edição dos dados
-//        }
+        fab.setOnClickListener { view ->
+            val action = MyProductFragmentDirections.actionItemMyProductsToRegisterMyNewProductDialogFragment()
+            view.findNavController().navigate(action)
+        }
     }
 //    override fun onItemLongClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long): Boolean {
 //

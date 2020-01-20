@@ -48,15 +48,30 @@
         </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilName"
+                android:id="@+id/tilTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtName"
+                    android:id="@+id/edtTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_title"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapWords"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_category"
                     android:imeOptions="actionDone"
                     android:inputType="textCapWords"/>
 

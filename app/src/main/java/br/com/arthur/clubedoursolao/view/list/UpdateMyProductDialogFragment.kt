@@ -41,12 +41,9 @@ class UpdateMyProductDialogFragment : DialogFragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        setValues()
-//        edtName.hint = navArgs<UpdateMyProductDialogFragmentArgs>().value.title
-        edtName.hint = navArgs<UpdateMyProductDialogFragmentArgs>().value.Test
         lendingProduct = navArgs<UpdateMyProductDialogFragmentArgs>().value.lendingProduct
 
-        edtName.setText(navArgs<UpdateMyProductDialogFragmentArgs>().value.lendingProduct.title)
-        //edtName.hint = navArgs<UpdateMyProductDialogFragmentArgs>().value.title
+        edtTitle.setText(navArgs<UpdateMyProductDialogFragmentArgs>().value.lendingProduct.title)
         edtLeanderName.setText(navArgs<UpdateMyProductDialogFragmentArgs>().value.lendingProduct.owner_lending)
         edtEndDate.setText(navArgs<UpdateMyProductDialogFragmentArgs>().value.lendingProduct.returnDate)
 
@@ -74,9 +71,8 @@ class UpdateMyProductDialogFragment : DialogFragment(), View.OnClickListener {
         return false }
 
     private fun update(){
-
 //        lendingProduct.situation = radioGroupStatusBorrowed.checkedRadioButtonId
-        lendingProduct.title = edtName.text.toString()
+        lendingProduct.title = edtTitle.text.toString()
         lendingProduct.owner_lending = edtLeanderName.text.toString()
 //        lendingProduct.returnDate = edtEndDate.text.toString()
 
@@ -86,7 +82,7 @@ class UpdateMyProductDialogFragment : DialogFragment(), View.OnClickListener {
     }
 
     override fun onClick(p0: View?) {
-        edtName.imeOptions = EditorInfo.IME_ACTION_NEXT
+        edtTitle.imeOptions = EditorInfo.IME_ACTION_NEXT
         edtLeanderName.isEnabled = true
         edtEndDate.isEnabled = true
     }

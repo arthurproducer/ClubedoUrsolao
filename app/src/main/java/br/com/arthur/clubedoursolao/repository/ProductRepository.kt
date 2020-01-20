@@ -26,6 +26,12 @@ interface ProductRepository {
         onError: (Throwable?) -> Unit
     )
 
+    fun registerMyNewProduct(
+        product: Product,
+        onComplete: () -> Unit,
+        onError: (Throwable?) -> Unit
+    )
+
     fun getMyDevolutionProducts(
         user: User,
         onComplete: (List<LendingProduct>?) -> Unit,

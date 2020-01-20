@@ -43,6 +43,8 @@
     <string name="hint_owner_lending">Para quem?</string>
     <string name="hint_endDate">Data final para devolução</string>
     <string name="availableForLoan">Disponibilizar Produto</string>
+    <string name="hint_descr">Nova Descrição</string>
+    <string name="hint_category">Nova Categoria</string>
 
 
 </resources>
