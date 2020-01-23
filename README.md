@@ -48,15 +48,7 @@ Accesse o directório do projeto:
 cd clubedoursolao
 ```
 
-### Para executar
-
-Inicie o projeto:
-
-```
-npm run serve
-```
-
-A web page should open in your default browser (e.g.: http://localhost:8080/). Enjoy the game ;)
+### Detalhando as telas
 
 
 ## Version
