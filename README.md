@@ -48,8 +48,15 @@ Accesse o directório do projeto:
 cd clubedoursolao
 ```
 
-### Detalhando as telas
+## Detalhando as telas
 
+### Splash
+### Login
+### RegisterUser
+### Search for Category
+### MyProducts
+### Devolution
+### About
 
 ## Version
 
