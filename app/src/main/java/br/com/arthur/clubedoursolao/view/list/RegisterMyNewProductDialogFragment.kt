@@ -3,6 +3,7 @@ package br.com.arthur.clubedoursolao.view.list
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 
 import br.com.arthur.clubedoursolao.R
+import br.com.arthur.clubedoursolao.model.InsertProduct
 import br.com.arthur.clubedoursolao.model.Product
 import br.com.arthur.clubedoursolao.model.User
 import kotlinx.android.synthetic.main.dialog_register_my_new_product_dialog.*
@@ -23,7 +25,7 @@ class RegisterMyNewProductDialogFragment : DialogFragment() {
     private val registerMyNewProductViewModel: RegisterMyNewProductViewModel by viewModel()
     private val preferences: SharedPreferences by inject()
 
-    val product =  Product()
+    val product =  InsertProduct()
 
 
     override fun onCreateView(
@@ -33,7 +35,6 @@ class RegisterMyNewProductDialogFragment : DialogFragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.dialog_register_my_new_product_dialog, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,7 +46,7 @@ class RegisterMyNewProductDialogFragment : DialogFragment() {
 
         product.title = edtTitle.text.toString()
         product.descr = edtDescr.text.toString()
-        product.category = edtCategory.text.toString()
+        product.category = 3
         product.owner_id = user.id
 
 
@@ -54,23 +55,16 @@ class RegisterMyNewProductDialogFragment : DialogFragment() {
                 Toast.makeText(context, it, Toast.LENGTH_LONG).show()
             })
 
-        edtCategory.setOnEditorActionListener { _, i, _ ->
-            handleKeyboardEvent(i)
-        }
+        btnRegisterProduct.setOnClickListener {
+            //tratar dados obrigatórios
+            registerProduct()}
+
         dialog?.setTitle(R.string.updateMyProduct)
         dialog?.window?.setSoftInputMode(
             WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
     }
 
-    private fun handleKeyboardEvent(actionId: Int): Boolean{
-        if (EditorInfo.IME_ACTION_DONE == actionId) {
-            registerProduct()
-            return true
-        }
-        return false }
-
     private fun registerProduct(){
-
         registerMyNewProductViewModel.registerMyNewProduct(product)
     }
 }

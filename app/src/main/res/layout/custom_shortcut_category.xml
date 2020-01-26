@@ -45,7 +45,7 @@
                   android:maxLines="3"
                   android:ellipsize="end"
                   android:fontFamily="sans-serif"
-                  android:text="Roupas"
+                  android:text="@string/category_clothes"
         />
     </LinearLayout>
 
@@ -85,7 +85,7 @@
                   android:maxLines="3"
                   android:ellipsize="end"
                   android:fontFamily="sans-serif"
-                  android:text="Sapatos"
+                  android:text="@string/category_shoes"
         />
     </LinearLayout>
 
@@ -125,7 +125,7 @@
                   android:maxLines="3"
                   android:ellipsize="end"
                   android:fontFamily="sans-serif"
-                  android:text="Brinquedos"
+                  android:text="@string/category_toys"
         />
     </LinearLayout>
 
@@ -166,7 +166,7 @@
                   android:ellipsize="end"
                   android:textSize="13sp"
                   android:fontFamily="sans-serif"
-                  android:text="Ferramentas"
+                  android:text="@string/category_tools"
         />
     </LinearLayout>
 

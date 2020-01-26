@@ -28,7 +28,7 @@ interface Api{
 
     //registerMyProducts
     @POST("/items")
-    fun registerMyNewProducts(@Body product: Product) : Call<Product>
+    fun registerMyNewProducts(@Body product: InsertProduct) : Call<InsertProduct>
 
     @GET("/lendings/clients/{id}")
     fun getMyDevolutionProducts(@Path("id") id: Int) : Call<List<LendingProduct>>

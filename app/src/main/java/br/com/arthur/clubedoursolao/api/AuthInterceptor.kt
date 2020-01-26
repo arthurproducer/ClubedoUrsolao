@@ -24,38 +24,19 @@ class BaseInterceptor : Interceptor {
             Log.e("MEUAPP", "Error API KEY")
         }
         return response
-    }}
-
-
-class AuthInterceptor(private val preferences: SharedPreferences) : Interceptor{
-
-    var credentials = ""
-//    var context: Context
-    var token : String
-
-//    constructor(context: Context){
-//        this.context = context
-//        token = getToken(context).toString()
-//    }
-
-    init {
-        token = preferences.getString("Token",null).toString()
     }
+}
 
-//    fun getToken(context: Context) : String?{
-//        val pref = context.getSharedPreferences("Token",0)
-//        val token = pref.getString("token",null)
-//        return token
-//    }
 
-    fun  basicAuthInterceptor(user : String, password: String){
-        this.credentials = Credentials.basic(user,password)
-    }
+class AuthInterceptor(private val preferences: SharedPreferences) : Interceptor {
+
+    private val token = preferences.getString("Token", null).toString()
 
     override fun intercept(chain: Interceptor.Chain): Response {
 
         val requestBuilder = chain?.request()?.newBuilder()
-        requestBuilder?.addHeader("x-access-token", token)
+        requestBuilder?.addHeader("Content-Type", "application/json")
+            ?.addHeader("x-access-token", token)
         val request = requestBuilder?.build()
         val response = chain.proceed(request)
         Log.d("MEUAPP", "Error API KEY TOKEN ${token} + ${response.body().toString()} + ${response.code()}")

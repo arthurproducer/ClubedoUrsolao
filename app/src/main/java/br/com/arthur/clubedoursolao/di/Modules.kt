@@ -20,6 +20,7 @@ import br.com.arthur.clubedoursolao.view.login.LoginViewModel
 import br.com.arthur.clubedoursolao.view.registerUser.RegisterUserViewModel
 import br.com.arthur.clubedoursolao.view.splash.SplashViewModel
 import com.facebook.stetho.okhttp3.StethoInterceptor
+import com.google.gson.GsonBuilder
 import com.squareup.picasso.OkHttp3Downloader
 import com.squareup.picasso.Picasso
 import okhttp3.Interceptor
@@ -77,7 +78,13 @@ private fun createPicassoAuth(context: Context, okHttpClient: OkHttpClient): Pic
 private fun provideSettingsPreferences(app: Application): SharedPreferences =
     app.getSharedPreferences("Token", Context.MODE_PRIVATE)
 
+
 private fun createNetworkClient(okHttpClient: OkHttpClient, baseUrl: String): Retrofit {
+//
+//    val gson = GsonBuilder()
+//        .setLenient()
+//        .create()
+
     return Retrofit.Builder()
         .client(okHttpClient)
         .baseUrl(baseUrl)

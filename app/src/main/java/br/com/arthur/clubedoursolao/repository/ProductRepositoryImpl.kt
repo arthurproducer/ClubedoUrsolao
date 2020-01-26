@@ -66,17 +66,16 @@ class ProductRepositoryImpl(val api : Api): ProductRepository{
     }
 
     override fun registerMyNewProduct(
-        product: Product,
+        product: InsertProduct,
         onComplete: () -> Unit,
-        onError: (Throwable?) -> Unit
-    ) {
+        onError: (Throwable?) -> Unit) {
         api.registerMyNewProducts(product)
-            .enqueue(object : Callback<Product> {
-                override fun onFailure(call: Call<Product>, t: Throwable) {
+            .enqueue(object : Callback<InsertProduct> {
+                override fun onFailure(call: Call<InsertProduct>, t: Throwable) {
                     onError(t)
                 }
 
-                override fun onResponse(call: Call<Product>, response: Response<Product>) {
+                override fun onResponse(call: Call<InsertProduct>, response: Response<InsertProduct>) {
                     if(response.isSuccessful){
                         onComplete()
                     } else{

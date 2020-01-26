@@ -45,6 +45,11 @@
     <string name="availableForLoan">Disponibilizar Produto</string>
     <string name="hint_descr">Nova Descrição</string>
     <string name="hint_category">Nova Categoria</string>
+    <string name="category_clothes">Roupas</string>
+    <string name="category_shoes">Sapatos</string>
+    <string name="category_toys">Brinquedos</string>
+    <string name="category_tools">Ferramentas</string>
+    <string name="category_question">Qual a categoria do produto?</string>
 
 
 </resources>

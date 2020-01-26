@@ -1,9 +1,6 @@
 package br.com.arthur.clubedoursolao.repository
 
-import br.com.arthur.clubedoursolao.model.DevolutionResponse
-import br.com.arthur.clubedoursolao.model.LendingProduct
-import br.com.arthur.clubedoursolao.model.Product
-import br.com.arthur.clubedoursolao.model.User
+import br.com.arthur.clubedoursolao.model.*
 
 
 interface ProductRepository {
@@ -27,7 +24,7 @@ interface ProductRepository {
     )
 
     fun registerMyNewProduct(
-        product: Product,
+        product: InsertProduct,
         onComplete: () -> Unit,
         onError: (Throwable?) -> Unit
     )

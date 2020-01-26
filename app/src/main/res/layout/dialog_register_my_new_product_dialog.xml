@@ -9,6 +9,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="24sp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
@@ -16,7 +17,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif"
-                android:text="@string/situation_question"
+                android:text="@string/updateMyProduct"
                 android:textColor="@color/colorTextPrimary"/>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -29,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_title"
-                    android:imeOptions="actionDone"
+                    android:imeOptions="actionNext"
                     android:inputType="textCapWords"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -45,23 +46,77 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_descr"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionNext"
                 android:inputType="textMultiLine"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilCategory"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <TextView
+                android:id="@+id/radioTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/category_question"
+                android:textColor="@color/colorTextPrimary"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtCategory"
+        <RadioGroup
+                android:id="@+id/radioGroupStatusBorrowed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:orientation="vertical">
+
+            <RadioButton
+                    android:id="@+id/radioBtnClothes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_category"
-                    android:imeOptions="actionDone"
-                    android:inputType="textCapWords"/>
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:buttonTint="@color/colorTextPrimary"
+                    android:text="@string/category_clothes"
+                    android:textColor="@color/colorTextPrimary" />
+            <RadioButton
+                    android:id="@+id/radioBtnShoes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:buttonTint="@color/colorTextPrimary"
+                    android:textColor="@color/colorTextPrimary"
+                    android:text="@string/category_shoes" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <RadioButton
+                    android:id="@+id/radioBtnToys"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:buttonTint="@color/colorTextPrimary"
+                    android:text="@string/category_toys"
+                    android:textColor="@color/colorTextPrimary" />
+            <RadioButton
+                    android:id="@+id/radioBtnTools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:buttonTint="@color/colorTextPrimary"
+                    android:textColor="@color/colorTextPrimary"
+                    android:text="@string/category_tools" />
+        </RadioGroup>
+        <Button
+                android:text="@string/registerUser"
+                android:background="@drawable/background_button_details"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/button_padding"
+                android:textColor="@color/colorTextSecundary"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnRegisterProduct"/>
     </LinearLayout>
 

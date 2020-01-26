@@ -2,6 +2,7 @@ package br.com.arthur.clubedoursolao.view.list
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.arthur.clubedoursolao.model.InsertProduct
 import br.com.arthur.clubedoursolao.model.LendingProduct
 import br.com.arthur.clubedoursolao.model.Product
 import br.com.arthur.clubedoursolao.model.User
@@ -16,15 +17,12 @@ class RegisterMyNewProductViewModel(
     val messageResponse = MutableLiveData<String>()
 //    val lendingProducts: MutableLiveData<List<LendingProduct>> = MutableLiveData()
 
-    fun registerMyNewProduct(product: Product){
-
+    fun registerMyNewProduct(product: InsertProduct){
         isLoading.value = true
         productRepository.registerMyNewProduct(product,{
             isLoading.value = false
-//            lendingProducts.value = it
-            messageResponse.value = "Dados gravados com sucesso"
+            messageResponse.value = "Produto gravado com sucesso"
         },{
-            //            lendingProducts.value = emptyList()
             isLoading.value = false
             messageResponse.value = it?.message
         })
